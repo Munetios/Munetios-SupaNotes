@@ -456,6 +456,7 @@
         overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         line-height: 1.5;
       }
@@ -2247,6 +2248,20 @@
             </div>
             <div
               class="npreview-action-btn"
+              id="npreviewShareBtn"
+              title="Share"
+            >
+              <icon>share</icon>
+            </div>
+            <div
+              class="npreview-action-btn"
+              id="npreviewPrintBtn"
+              title="Print"
+            >
+              <icon>print</icon>
+            </div>
+            <div
+              class="npreview-action-btn"
               id="npreviewCloseBtn"
               title="Close"
             >
@@ -2590,7 +2605,10 @@
             moveToTrashAll: 'Move All Notes to Trash', exportAll: 'Export All Notes', importNotes: 'Import Notes',
             resetEncKey: 'Reset Encryption Key', deleteAll: 'Delete Everything',
             addToTag: 'Add to Tag', addToFavorites: 'Add to Favorites', removeFavorite: 'Remove Favorite',
-            edit: 'Edit', moveToTrash: 'Move to Trash', restore: 'Restore'
+            edit: 'Edit', moveToTrash: 'Move to Trash', restore: 'Restore',
+            share: 'Share', print: 'Print', shareTitle: 'Share Note', shareVia: 'Share via:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: 'Note content copied!', shareNotSupported: 'Sharing not supported on this device.'
           },
           es: {
             nativeName: 'Espanol', notes: 'Notas', tags: 'Etiquetas', favorites: 'Favoritos', trash: 'Papelera',
@@ -2608,7 +2626,10 @@
             moveToTrashAll: 'Mover Todo a Papelera', exportAll: 'Exportar Todas las Notas', importNotes: 'Importar Notas',
             resetEncKey: 'Restablecer Clave', deleteAll: 'Eliminar Todo',
             addToTag: 'Agregar Etiqueta', addToFavorites: 'Agregar a Favoritos', removeFavorite: 'Quitar Favorito',
-            edit: 'Editar', moveToTrash: 'Mover a Papelera', restore: 'Restaurar'
+            edit: 'Editar', moveToTrash: 'Mover a Papelera', restore: 'Restaurar',
+            share: 'Compartir', print: 'Imprimir', shareTitle: 'Compartir Nota', shareVia: 'Compartir vía:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: '¡Contenido copiado!', shareNotSupported: 'Compartir no soportado en este dispositivo.'
           },
           fr: {
             nativeName: 'Francais', notes: 'Notes', tags: 'Etiquettes', favorites: 'Favoris', trash: 'Corbeille',
@@ -2626,7 +2647,10 @@
             moveToTrashAll: 'Tout mettre a la Corbeille', exportAll: 'Exporter Toutes les Notes', importNotes: 'Importer des Notes',
             resetEncKey: 'Reinitialiser la Cle', deleteAll: 'Tout Supprimer',
             addToTag: 'Ajouter une Etiquette', addToFavorites: 'Ajouter aux Favoris', removeFavorite: 'Retirer des Favoris',
-            edit: 'Modifier', moveToTrash: 'Mettre a la Corbeille', restore: 'Restaurer'
+            edit: 'Modifier', moveToTrash: 'Mettre a la Corbeille', restore: 'Restaurer',
+            share: 'Partager', print: 'Imprimer', shareTitle: 'Partager la note', shareVia: 'Partager via:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: 'Contenu copié!', shareNotSupported: 'Partage non pris en charge sur cet appareil.'
           },
           de: {
             nativeName: 'Deutsch', notes: 'Notizen', tags: 'Tags', favorites: 'Favoriten', trash: 'Papierkorb',
@@ -2644,7 +2668,10 @@
             moveToTrashAll: 'Alle in den Papierkorb', exportAll: 'Alle Notizen exportieren', importNotes: 'Notizen importieren',
             resetEncKey: 'Schlussel zurucksetzen', deleteAll: 'Alles loschen',
             addToTag: 'Tag hinzufugen', addToFavorites: 'Zu Favoriten', removeFavorite: 'Aus Favoriten',
-            edit: 'Bearbeiten', moveToTrash: 'In Papierkorb', restore: 'Wiederherstellen'
+            edit: 'Bearbeiten', moveToTrash: 'In Papierkorb', restore: 'Wiederherstellen',
+            share: 'Teilen', print: 'Drucken', shareTitle: 'Notiz teilen', shareVia: 'Teilen über:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: 'Inhalt kopiert!', shareNotSupported: 'Teilen auf diesem Gerät nicht unterstützt.'
           },
           it: {
             nativeName: 'Italiano', notes: 'Note', tags: 'Etichette', favorites: 'Preferiti', trash: 'Cestino',
@@ -2662,7 +2689,10 @@
             moveToTrashAll: 'Sposta tutto nel Cestino', exportAll: 'Esporta tutte le Note', importNotes: 'Importa Note',
             resetEncKey: 'Reimposta Chiave', deleteAll: 'Elimina Tutto',
             addToTag: 'Aggiungi Etichetta', addToFavorites: 'Aggiungi ai Preferiti', removeFavorite: 'Rimuovi dai Preferiti',
-            edit: 'Modifica', moveToTrash: 'Sposta nel Cestino', restore: 'Ripristina'
+            edit: 'Modifica', moveToTrash: 'Sposta nel Cestino', restore: 'Ripristina',
+            share: 'Condividi', print: 'Stampa', shareTitle: 'Condividi Nota', shareVia: 'Condividi tramite:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: 'Contenuto copiato!', shareNotSupported: 'Condivisione non supportata su questo dispositivo.'
           },
           pt: {
             nativeName: 'Portugues', notes: 'Notas', tags: 'Etiquetas', favorites: 'Favoritos', trash: 'Lixeira',
@@ -2680,7 +2710,10 @@
             moveToTrashAll: 'Mover Tudo para Lixeira', exportAll: 'Exportar Todas as Notas', importNotes: 'Importar Notas',
             resetEncKey: 'Redefinir Chave', deleteAll: 'Deletar Tudo',
             addToTag: 'Adicionar Etiqueta', addToFavorites: 'Adicionar aos Favoritos', removeFavorite: 'Remover Favorito',
-            edit: 'Editar', moveToTrash: 'Mover para Lixeira', restore: 'Restaurar'
+            edit: 'Editar', moveToTrash: 'Mover para Lixeira', restore: 'Restaurar',
+            share: 'Compartilhar', print: 'Imprimir', shareTitle: 'Compartilhar Nota', shareVia: 'Compartilhar via:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: 'Conteúdo copiado!', shareNotSupported: 'Compartilhamento não suportado neste dispositivo.'
           },
           ja: {
             nativeName: '\u65e5\u672c\u8a9e', notes: '\u30ce\u30fc\u30c8', tags: '\u30bf\u30b0', favorites: '\u304a\u6c17\u306b\u5165\u308a', trash: '\u30b4\u30df\u7b71',
@@ -2698,7 +2731,10 @@
             moveToTrashAll: '\u3059\u3079\u3066\u30b4\u30df\u7b71\u3078', exportAll: '\u3059\u3079\u3066\u306e\u30ce\u30fc\u30c8\u3092\u30a8\u30af\u30b9\u30dd\u30fc\u30c8', importNotes: '\u30ce\u30fc\u30c8\u3092\u30a4\u30f3\u30dd\u30fc\u30c8',
             resetEncKey: '\u6697\u53f7\u5316\u30ad\u30fc\u3092\u30ea\u30bb\u30c3\u30c8', deleteAll: '\u3059\u3079\u3066\u524a\u9664',
             addToTag: '\u30bf\u30b0\u306b\u8ffd\u52a0', addToFavorites: '\u304a\u6c17\u306b\u5165\u308a\u306b\u8ffd\u52a0', removeFavorite: '\u304a\u6c17\u306b\u5165\u308a\u304b\u3089\u524a\u9664',
-            edit: '\u7de8\u96c6', moveToTrash: '\u30b4\u30df\u7b71\u3078\u79fb\u52d5', restore: '\u5fa9\u5143'
+            edit: '\u7de8\u96c6', moveToTrash: '\u30b4\u30df\u7b71\u3078\u79fb\u52d5', restore: '\u5fa9\u5143',
+            share: 'Share', print: 'Print', shareTitle: 'Share Note', shareVia: 'Share via:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: 'Note content copied!', shareNotSupported: 'Sharing not supported on this device.'
           },
           zh: {
             nativeName: '\u4e2d\u6587', notes: '\u7b14\u8bb0', tags: '\u6807\u7b7e', favorites: '\u6536\u85cf', trash: '\u56de\u6536\u7ad9',
@@ -2716,7 +2752,10 @@
             moveToTrashAll: '\u5168\u90e8\u79fb\u81f3\u56de\u6536\u7ad9', exportAll: '\u5bfc\u51fa\u6240\u6709\u7b14\u8bb0', importNotes: '\u5bfc\u5165\u7b14\u8bb0',
             resetEncKey: '\u91cd\u7f6e\u52a0\u5bc6\u5bc6\u9470', deleteAll: '\u5220\u9664\u6240\u6709\u5185\u5bb9',
             addToTag: '\u6dfb\u52a0\u6807\u7b7e', addToFavorites: '\u6dfb\u52a0\u5230\u6536\u85cf', removeFavorite: '\u53d6\u6d88\u6536\u85cf',
-            edit: '\u7f16\u8f91', moveToTrash: '\u79fb\u81f3\u56de\u6536\u7ad9', restore: '\u6062\u590d'
+            edit: '\u7f16\u8f91', moveToTrash: '\u79fb\u81f3\u56de\u6536\u7ad9', restore: '\u6062\u590d',
+            share: 'Share', print: 'Print', shareTitle: 'Share Note', shareVia: 'Share via:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: 'Note content copied!', shareNotSupported: 'Sharing not supported on this device.'
           },
           ru: {
             nativeName: '\u0420\u0443\u0441\u0441\u043a\u0438\u0439', notes: '\u0417\u0430\u043c\u0435\u0442\u043a\u0438', tags: '\u0422\u0435\u0433\u0438', favorites: '\u0418\u0437\u0431\u0440\u0430\u043d\u043d\u043e\u0435', trash: '\u041a\u043e\u0440\u0437\u0438\u043d\u0430',
@@ -2734,7 +2773,10 @@
             moveToTrashAll: '\u041f\u0435\u0440\u0435\u043c\u0435\u0441\u0442\u0438\u0442\u044c \u0432\u0441\u0451 \u0432 \u041a\u043e\u0440\u0437\u0438\u043d\u0443', exportAll: '\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u0437\u0430\u043c\u0435\u0442\u043e\u043a', importNotes: '\u0418\u043c\u043f\u043e\u0440\u0442 \u0437\u0430\u043c\u0435\u0442\u043e\u043a',
             resetEncKey: '\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u041a\u043b\u044e\u0447', deleteAll: '\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0432\u0441\u0451',
             addToTag: '\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0432 \u0422\u0435\u0433', addToFavorites: '\u0412 \u0418\u0437\u0431\u0440\u0430\u043d\u043d\u043e\u0435', removeFavorite: '\u0423\u0431\u0440\u0430\u0442\u044c \u0438\u0437 \u0418\u0437\u0431\u0440\u0430\u043d\u043d\u043e\u0433\u043e',
-            edit: '\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c', moveToTrash: '\u0412 \u041a\u043e\u0440\u0437\u0438\u043d\u0443', restore: '\u0412\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c'
+            edit: '\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c', moveToTrash: '\u0412 \u041a\u043e\u0440\u0437\u0438\u043d\u0443', restore: '\u0412\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c',
+            share: 'Share', print: 'Print', shareTitle: 'Share Note', shareVia: 'Share via:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: 'Note content copied!', shareNotSupported: 'Sharing not supported on this device.'
           },
           ar: {
             nativeName: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629', notes: '\u0627\u0644\u0645\u0644\u0627\u062d\u0638\u0627\u062a', tags: '\u0627\u0644\u0648\u0633\u0648\u0645', favorites: '\u0627\u0644\u0645\u0641\u0636\u0644\u0629', trash: '\u0633\u0644\u0629 \u0627\u0644\u0645\u0647\u0645\u0644\u0627\u062a',
@@ -2742,6 +2784,9 @@
             favoritesTitle: '\u0627\u0644\u0645\u0641\u0636\u0644\u0629', favoritesSubtitle: '\u0627\u0644\u0645\u0644\u0627\u062d\u0638\u0627\u062a \u0627\u0644\u0645\u0645\u064a\u0632\u0629 \u062a\u0638\u0647\u0631 \u0647\u0646\u0627.',
             tagsTitle: '\u0627\u0644\u0648\u0633\u0648\u0645', tagsSubtitle: '\u0646\u0638\u0645 \u0645\u0644\u0627\u062d\u0638\u0627\u062a\u0643 \u0628\u0627\u0644\u0648\u0633\u0648\u0645.',
             trashTitle: '\u0633\u0644\u0629 \u0627\u0644\u0645\u0647\u0645\u0644\u0627\u062a', trashSubtitle: '\u0627\u0644\u0645\u0644\u0627\u062d\u0638\u0627\u062a \u0627\u0644\u0645\u062d\u0630\u0648\u0641\u0629.',
+            share: 'Share', print: 'Print', shareTitle: 'Share Note', shareVia: 'Share via:',
+            shareFacebook: 'Facebook', shareGmail: 'Gmail', shareOmniWrite: 'Munetios OmniWrite', shareWhatsApp: 'WhatsApp', shareReddit: 'Reddit', shareChatGPT: 'ChatGPT',
+            shareCopied: 'Note content copied!', shareNotSupported: 'Sharing not supported on this device.',
             newNote: '\u0645\u0644\u0627\u062d\u0638\u0629 \u062c\u062f\u064a\u062f\u0629', editNote: '\u062a\u0639\u062f\u064a\u0644 \u0627\u0644\u0645\u0644\u0627\u062d\u0638\u0629',
             noteTitlePlaceholder: '\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0645\u0644\u0627\u062d\u0638\u0629...', noteContentPlaceholder: '\u0627\u0643\u062a\u0628 \u0645\u0644\u0627\u062d\u0638\u062a\u0643 \u0647\u0646\u0627...',
             saveNote: '\u0645\u0644\u0627\u062d\u0638\u0629 \u062c\u062f\u064a\u062f\u0629', voiceNote: '\u0645\u0644\u0627\u062d\u0638\u0629 \u0635\u0648\u062a\u064a\u0629', tapRecord: '\u0627\u0636\u063a\u0637 \u0644\u0644\u062a\u0633\u062c\u064a\u0644',
@@ -2809,6 +2854,93 @@
           var vnSt = document.getElementById('vnmStatus'); if (vnSt) vnSt.textContent = t.tapRecord;
           var pmH = document.querySelector('#paintModal .pm-header h2'); if (pmH) pmH.textContent = t.paint;
           var lmH = document.querySelector('#linkModal .vm-header h2'); if (lmH) lmH.textContent = t.insertLink;
+          var shBtn = document.getElementById('npreviewShareBtn'); if (shBtn) shBtn.title = t.share;
+          var prBtn = document.getElementById('npreviewPrintBtn'); if (prBtn) prBtn.title = t.print;
+                  // --- SHARE & PRINT LOGIC ---
+                  function showShareDialog(noteTitle, noteContent) {
+                    var t = _t;
+                    var shareOptions = [
+                      { id: 'facebook', label: t('shareFacebook'), url: 'https://www.facebook.com/sharer/sharer.php?u=' },
+                      { id: 'gmail', label: t('shareGmail'), url: 'https://mail.google.com/mail/?view=cm&fs=1&su=' },
+                      { id: 'omniwrite', label: t('shareOmniWrite'), url: 'https://write.munetios.com/#/create?name=' },
+                      { id: 'whatsapp', label: t('shareWhatsApp'), url: 'https://wa.me/?text=' },
+                      { id: 'reddit', label: t('shareReddit'), url: 'https://www.reddit.com/submit?title=' },
+                      { id: 'chatgpt', label: t('shareChatGPT'), url: 'https://chatgpt.com/?q=' }
+                    ];
+                    var dlg = document.createElement('div');
+                    dlg.className = 'generic-modal active';
+                    dlg.style.zIndex = 9999;
+                    dlg.innerHTML = `
+                      <div class="note-modal-content liquid-glass" style="max-width: 380px; width: 92%; border-radius: 12px; padding: 20px;">
+                        <h2 style="margin-bottom: 12px;">${t('shareTitle')}</h2>
+                        <div style="margin-bottom: 10px;">${t('shareVia')}</div>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                          ${shareOptions.map(opt => `<button class="share-btn liquid-glass" data-id="${opt.id}" style="padding: 10px 0; color: inherit; font-size: 15px; cursor: pointer;">${opt.label}</button>`).join('')}
+                          <button class="share-btn liquid-glass" data-id="copy" style="padding: 10px 0;  color: inherit; font-size: 15px; cursor: pointer;">Copy</button>
+                          <button class="share-btn liquid-glass" data-id="close" style="padding: 10px 0;  color: inherit; font-size: 15px; cursor: pointer;">Close</button>
+                        </div>
+                      </div>
+                    `;
+                    dlg.addEventListener('click', function(e) {
+                      if (e.target.classList.contains('share-btn')) {
+                        var id = e.target.getAttribute('data-id');
+                        var url = '';
+                        var text = noteTitle + '\n' + noteContent;
+                        if (id === 'close') { document.body.removeChild(dlg); return; }
+                        if (id === 'copy') {
+                          navigator.clipboard.writeText(text).then(function() {
+                            showToast(t('shareCopied'));
+                          });
+                          return;
+                        }
+                        var encTitle = encodeURIComponent(noteTitle);
+                        var encContent = encodeURIComponent(noteContent);
+                        var target = '_self';
+                        switch(id) {
+                          case 'facebook': url = shareOptions[0].url + encodeURIComponent(window.location.href); target = '_self'; break;
+                          case 'gmail': url = shareOptions[1].url + encTitle + '&body=' + encContent; target = '_self'; break;
+                          case 'omniwrite': url = shareOptions[2].url + encTitle + '&content=' + encContent; target = '_self'; break;
+                          case 'chatgpt': url = shareOptions[5].url + encContent; target = '_self'; break;
+                          case 'whatsapp': url = shareOptions[3].url + encTitle + '%0A' + encContent; target = '_blank'; break;
+                          case 'reddit': url = shareOptions[4].url + encTitle + '&text=' + encContent; target = '_blank'; break;
+                        }
+                        if (url) window.open(url, target);
+                      }
+                    });
+                    document.body.appendChild(dlg);
+                  }
+
+                    function printNote(title, content) {
+                    var win = window.open('', '', 'width=700,height=600');
+                    win.document.write(
+                      '<html><head><title>' + title + '</title>' +
+                      // Google Fonts and Google Sans Flex
+                      '<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,ROND@6..144,1..1000,80&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">' +
+                      '<style>body{font-family:"Google Sans Flex", "Google Sans", Arial, sans-serif;padding:32px;color:#222;} h2{margin-bottom:18px;} img{max-width:100%;border-radius:6px;} .sn-voice-note{display:none;}</style>' +
+                      '</head><body><h2>' + title + '</h2><div>' + content + '</div></body></html>'
+                    );
+                    win.document.close();
+                    win.focus();
+                    setTimeout(function() { win.print(); win.close(); }, 300);
+                    }
+
+                  // Attach share/print to preview modal
+                  var shareBtn = document.getElementById('npreviewShareBtn');
+                  var printBtn = document.getElementById('npreviewPrintBtn');
+                  if (shareBtn) {
+                    shareBtn.addEventListener('click', function() {
+                      var title = document.getElementById('npreviewTitle').textContent || '';
+                      var content = document.getElementById('npreviewBody').innerText || '';
+                      showShareDialog(title, content);
+                    });
+                  }
+                  if (printBtn) {
+                    printBtn.addEventListener('click', function() {
+                      var title = document.getElementById('npreviewTitle').textContent || '';
+                      var content = document.getElementById('npreviewBody').innerHTML || '';
+                      printNote(title, content);
+                    });
+                  }
           var ltI = document.getElementById('linkTextInput'); if (ltI) ltI.placeholder = t.displayTextPlaceholder;
           var ntI = document.getElementById('newTagInput'); if (ntI) ntI.placeholder = t.newTagPlaceholder;
           var atB = document.getElementById('addTagBtn');
