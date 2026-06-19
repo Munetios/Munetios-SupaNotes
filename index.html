@@ -23,27 +23,16 @@
       rel="stylesheet"
       href="https://api.munetios.com/beautiful-css/beautiful.css"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght,ROND@6..144,1..1000,80&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
-      rel="stylesheet"
-      referrerpolicy="no-referrer"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded&display=swap"
-      rel="stylesheet"
-      referrerpolicy="no-referrer"
-      crossorigin="anonymous"
-    />
+
     <meta
       http-equiv="Content-Security-Policy"
       content="
         default-src 'self' https://*.munetios.com https://www.munetios.com https://fonts.googleapis.com https://fonts.gstatic.com;
-        style-src 'self' https://api.munetios.com 'unsafe-inline';
+        style-src 'self' https://api.munetios.com https://fonts.googleapis.com 'unsafe-inline';
         script-src 'self' 'nonce-Dm3NDi3ud893hbdDn3idjh30xJ3nfuN' https://api.munetios.com https://cdnjs.cloudflare.com;
         img-src 'self' data: blob: https://*.munetios.com https://www.munetios.com;
         media-src 'self' data: blob: https://*.munetios.com https://www.munetios.com;
-        font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://api.munetios.com;
+        font-src 'self' https:;
         connect-src 'self' https://*.munetios.com https://www.munetios.com;
         frame-src 'self' https://*.munetios.com https://www.munetios.com;
         object-src 'self' https://*.munetios.com https://www.munetios.com;
@@ -54,7 +43,7 @@
     <style>
       * {
         font-family: "Google Sans Flex", sans-serif;
-        font-variation-settings: "ROND" 50;
+        font-variation-settings: "ROND" 90;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -105,7 +94,6 @@
         font-size: 20px;
         font-weight: bold;
         white-space: nowrap;
-        font-feature-settings: "ss01" 1;
       }
       .navlinks {
         display: flex;
@@ -2236,6 +2224,8 @@
             <div
               class="npreview-action-btn"
               id="npreviewFavBtn"
+              role="button"
+              tabindex="0"
               title="Favorite"
             >
               <icon>favorite_border</icon>
@@ -2243,6 +2233,8 @@
             <div
               class="npreview-action-btn"
               id="npreviewEditBtn"
+              role="button"
+              tabindex="0"
               title="Edit note"
             >
               <icon>edit</icon>
@@ -2250,21 +2242,27 @@
             <div
               class="npreview-action-btn"
               id="npreviewShareBtn"
+              role="button"
               title="Share"
+              tabindex="0"
             >
               <icon>share</icon>
             </div>
             <div
               class="npreview-action-btn"
               id="npreviewPrintBtn"
+              role="button"
               title="Print"
+              tabindex="0"
             >
               <icon>print</icon>
             </div>
             <div
               class="npreview-action-btn"
               id="npreviewCloseBtn"
+              role="button"
               title="Close"
+              tabindex="0"
             >
               <icon>close</icon>
             </div>
@@ -2591,7 +2589,7 @@
         /* --- TRANSLATIONS --- */
         var TRANSLATIONS = {
           en: {
-            nativeName: 'English', notes: 'Notes', tags: 'Tags', favorites: 'Favorites', trash: 'Trash',
+            nativeName: 'English', languageChanged: 'Language changed', notes: 'Notes', tags: 'Tags', favorites: 'Favorites', trash: 'Trash',
             newLabel: 'New', searchPlaceholder: 'Search notes',
             favoritesTitle: 'Favorites', favoritesSubtitle: "Notes you've starred appear here.",
             tagsTitle: 'Tags', tagsSubtitle: 'Organize your notes with tags.',
@@ -2612,7 +2610,7 @@
             shareCopied: 'Note content copied!', shareNotSupported: 'Sharing not supported on this device.'
           },
           es: {
-            nativeName: 'Espanol', notes: 'Notas', tags: 'Etiquetas', favorites: 'Favoritos', trash: 'Papelera',
+            nativeName: 'Espa\u00f1ol', languageChanged: 'Idioma cambiado', notes: 'Notas', tags: 'Etiquetas', favorites: 'Favoritos', trash: 'Papelera',
             newLabel: 'Nuevo', searchPlaceholder: 'Buscar notas',
             favoritesTitle: 'Favoritos', favoritesSubtitle: 'Las notas marcadas aparecen aqui.',
             tagsTitle: 'Etiquetas', tagsSubtitle: 'Organiza tus notas con etiquetas.',
@@ -2623,7 +2621,7 @@
             recording: 'Grabando...', paused: 'Pausado', recordSaved: 'Grabacion guardada - toca Listo',
             paint: 'Pintar', insertLink: 'Insertar Enlace', displayTextPlaceholder: 'Texto visible (opcional)',
             newTagPlaceholder: 'Nombre de etiqueta...', addTag: 'Agregar Etiqueta',
-            settingsTitle: 'Configuracion', noteFontLabel: 'Fuente de Nota:', languageLabel: 'Idioma:', lightModeLabel: 'Modo Claro:',
+            settingsTitle: 'Configuraci\u00f3n', noteFontLabel: 'Fuente de Nota:', languageLabel: 'Idioma:', lightModeLabel: 'Modo Claro:',
             moveToTrashAll: 'Mover Todo a Papelera', exportAll: 'Exportar Todas las Notas', importNotes: 'Importar Notas',
             resetEncKey: 'Restablecer Clave', deleteAll: 'Eliminar Todo',
             addToTag: 'Agregar Etiqueta', addToFavorites: 'Agregar a Favoritos', removeFavorite: 'Quitar Favorito',
@@ -2633,7 +2631,7 @@
             shareCopied: '¡Contenido copiado!', shareNotSupported: 'Compartir no soportado en este dispositivo.'
           },
           fr: {
-            nativeName: 'Francais', notes: 'Notes', tags: 'Etiquettes', favorites: 'Favoris', trash: 'Corbeille',
+            nativeName: 'Fran\u00e7ais', languageChanged: 'Langue modifi\u00e9e', notes: 'Notes', tags: 'Etiquettes', favorites: 'Favoris', trash: 'Corbeille',
             newLabel: 'Nouveau', searchPlaceholder: 'Rechercher des notes',
             favoritesTitle: 'Favoris', favoritesSubtitle: 'Vos notes etoilees apparaissent ici.',
             tagsTitle: 'Etiquettes', tagsSubtitle: 'Organisez vos notes avec des etiquettes.',
@@ -2644,7 +2642,7 @@
             recording: 'Enregistrement...', paused: 'En pause', recordSaved: 'Enregistre - appuyez sur Termine',
             paint: 'Peinture', insertLink: 'Inserer un Lien', displayTextPlaceholder: 'Texte affiche (optionnel)',
             newTagPlaceholder: "Nom de l'etiquette...", addTag: 'Ajouter',
-            settingsTitle: 'Parametres', noteFontLabel: 'Police de Note:', languageLabel: 'Langue:', lightModeLabel: 'Mode Clair:',
+            settingsTitle: 'Param\u00e8tres', noteFontLabel: 'Police de Note:', languageLabel: 'Langue:', lightModeLabel: 'Mode Clair:',
             moveToTrashAll: 'Tout mettre a la Corbeille', exportAll: 'Exporter Toutes les Notes', importNotes: 'Importer des Notes',
             resetEncKey: 'Reinitialiser la Cle', deleteAll: 'Tout Supprimer',
             addToTag: 'Ajouter une Etiquette', addToFavorites: 'Ajouter aux Favoris', removeFavorite: 'Retirer des Favoris',
@@ -2654,7 +2652,7 @@
             shareCopied: 'Contenu copié!', shareNotSupported: 'Partage non pris en charge sur cet appareil.'
           },
           de: {
-            nativeName: 'Deutsch', notes: 'Notizen', tags: 'Tags', favorites: 'Favoriten', trash: 'Papierkorb',
+            nativeName: 'Deutsch', languageChanged: 'Sprache ge\u00e4ndert', notes: 'Notizen', tags: 'Tags', favorites: 'Favoriten', trash: 'Papierkorb',
             newLabel: 'Neu', searchPlaceholder: 'Notizen suchen',
             favoritesTitle: 'Favoriten', favoritesSubtitle: 'Markierte Notizen erscheinen hier.',
             tagsTitle: 'Tags', tagsSubtitle: 'Organisiere Notizen mit Tags.',
@@ -2675,7 +2673,7 @@
             shareCopied: 'Inhalt kopiert!', shareNotSupported: 'Teilen auf diesem Gerät nicht unterstützt.'
           },
           it: {
-            nativeName: 'Italiano', notes: 'Note', tags: 'Etichette', favorites: 'Preferiti', trash: 'Cestino',
+            nativeName: 'Italiano', languageChanged: 'Lingua cambiata', notes: 'Note', tags: 'Etichette', favorites: 'Preferiti', trash: 'Cestino',
             newLabel: 'Nuovo', searchPlaceholder: 'Cerca note',
             favoritesTitle: 'Preferiti', favoritesSubtitle: 'Le note preferite appaiono qui.',
             tagsTitle: 'Etichette', tagsSubtitle: 'Organizza le note con etichette.',
@@ -2696,7 +2694,7 @@
             shareCopied: 'Contenuto copiato!', shareNotSupported: 'Condivisione non supportata su questo dispositivo.'
           },
           pt: {
-            nativeName: 'Portugues', notes: 'Notas', tags: 'Etiquetas', favorites: 'Favoritos', trash: 'Lixeira',
+            nativeName: 'Portugu\u00eas', languageChanged: 'Idioma alterado', notes: 'Notas', tags: 'Etiquetas', favorites: 'Favoritos', trash: 'Lixeira',
             newLabel: 'Novo', searchPlaceholder: 'Pesquisar notas',
             favoritesTitle: 'Favoritos', favoritesSubtitle: 'Notas marcadas aparecem aqui.',
             tagsTitle: 'Etiquetas', tagsSubtitle: 'Organize notas com etiquetas.',
@@ -2717,7 +2715,7 @@
             shareCopied: 'Conteúdo copiado!', shareNotSupported: 'Compartilhamento não suportado neste dispositivo.'
           },
           ja: {
-            nativeName: '\u65e5\u672c\u8a9e', notes: '\u30ce\u30fc\u30c8', tags: '\u30bf\u30b0', favorites: '\u304a\u6c17\u306b\u5165\u308a', trash: '\u30b4\u30df\u7b71',
+            nativeName: '\u65e5\u672c\u8a9e', languageChanged: '\u8a00\u8a9e\u304c\u5909\u66f4\u3055\u308c\u307e\u3057\u305f', notes: '\u30ce\u30fc\u30c8', tags: '\u30bf\u30b0', favorites: '\u304a\u6c17\u306b\u5165\u308a', trash: '\u30b4\u30df\u7b71',
             newLabel: '\u65b0\u898f', searchPlaceholder: '\u30ce\u30fc\u30c8\u3092\u691c\u7d22',
             favoritesTitle: '\u304a\u6c17\u306b\u5165\u308a', favoritesSubtitle: '\u30b9\u30bf\u30fc\u3092\u4ed8\u3051\u305f\u30ce\u30fc\u30c8\u304c\u3053\u3053\u306b\u8868\u793a\u3055\u308c\u307e\u3059\u3002',
             tagsTitle: '\u30bf\u30b0', tagsSubtitle: '\u30bf\u30b0\u3067\u30ce\u30fc\u30c8\u3092\u6574\u7406\u3057\u307e\u3057\u3087\u3046\u3002',
@@ -2738,7 +2736,7 @@
             shareCopied: 'Note content copied!', shareNotSupported: 'Sharing not supported on this device.'
           },
           zh: {
-            nativeName: '\u4e2d\u6587', notes: '\u7b14\u8bb0', tags: '\u6807\u7b7e', favorites: '\u6536\u85cf', trash: '\u56de\u6536\u7ad9',
+            nativeName: '\u4e2d\u6587', languageChanged: '\u8bed\u8a00\u5df2\u66f4\u6539', notes: '\u7b14\u8bb0', tags: '\u6807\u7b7e', favorites: '\u6536\u85cf', trash: '\u56de\u6536\u7ad9',
             newLabel: '\u65b0\u5efa', searchPlaceholder: '\u641c\u7d22\u7b14\u8bb0',
             favoritesTitle: '\u6536\u85cf', favoritesSubtitle: '\u5df2\u52a0\u661f\u6807\u7684\u7b14\u8bb0\u663e\u793a\u5728\u8fd9\u91cc\u3002',
             tagsTitle: '\u6807\u7b7e', tagsSubtitle: '\u7528\u6807\u7b7e\u6574\u7406\u4f60\u7684\u7b14\u8bb0\u3002',
@@ -2759,7 +2757,7 @@
             shareCopied: 'Note content copied!', shareNotSupported: 'Sharing not supported on this device.'
           },
           ru: {
-            nativeName: '\u0420\u0443\u0441\u0441\u043a\u0438\u0439', notes: '\u0417\u0430\u043c\u0435\u0442\u043a\u0438', tags: '\u0422\u0435\u0433\u0438', favorites: '\u0418\u0437\u0431\u0440\u0430\u043d\u043d\u043e\u0435', trash: '\u041a\u043e\u0440\u0437\u0438\u043d\u0430',
+            nativeName: '\u0420\u0443\u0441\u0441\u043a\u0438\u0439', languageChanged: '\u042f\u0437\u044b\u043a \u0438\u0437\u043c\u0435\u043d\u0435\u043d', notes: '\u0417\u0430\u043c\u0435\u0442\u043a\u0438', tags: '\u0422\u0435\u0433\u0438', favorites: '\u0418\u0437\u0431\u0440\u0430\u043d\u043d\u043e\u0435', trash: '\u041a\u043e\u0440\u0437\u0438\u043d\u0430',
             newLabel: '\u041d\u043e\u0432\u0430\u044f', searchPlaceholder: '\u041f\u043e\u0438\u0441\u043a \u0437\u0430\u043c\u0435\u0442\u043e\u043a',
             favoritesTitle: '\u0418\u0437\u0431\u0440\u0430\u043d\u043d\u043e\u0435', favoritesSubtitle: '\u041e\u0442\u043c\u0435\u0447\u0435\u043d\u043d\u044b\u0435 \u0437\u0430\u043c\u0435\u0442\u043a\u0438 \u043f\u043e\u044f\u0432\u043b\u044f\u044e\u0442\u0441\u044f \u0437\u0434\u0435\u0441\u044c.',
             tagsTitle: '\u0422\u0435\u0433\u0438', tagsSubtitle: '\u041e\u0440\u0433\u0430\u043d\u0438\u0437\u0443\u0439\u0442\u0435 \u0437\u0430\u043c\u0435\u0442\u043a\u0438 \u0441 \u0442\u0435\u0433\u0430\u043c\u0438.',
@@ -2780,7 +2778,7 @@
             shareCopied: 'Note content copied!', shareNotSupported: 'Sharing not supported on this device.'
           },
           ar: {
-            nativeName: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629', notes: '\u0627\u0644\u0645\u0644\u0627\u062d\u0638\u0627\u062a', tags: '\u0627\u0644\u0648\u0633\u0648\u0645', favorites: '\u0627\u0644\u0645\u0641\u0636\u0644\u0629', trash: '\u0633\u0644\u0629 \u0627\u0644\u0645\u0647\u0645\u0644\u0627\u062a',
+            nativeName: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629', languageChanged: '\u062a\u0645 \u062a\u063a\u064a\u064a\u0631 \u0627\u0644\u0644\u063a\u0629', notes: '\u0627\u0644\u0645\u0644\u0627\u062d\u0638\u0627\u062a', tags: '\u0627\u0644\u0648\u0633\u0648\u0645', favorites: '\u0627\u0644\u0645\u0641\u0636\u0644\u0629', trash: '\u0633\u0644\u0629 \u0627\u0644\u0645\u0647\u0645\u0644\u0627\u062a',
             newLabel: '\u062c\u062f\u064a\u062f', searchPlaceholder: '\u0627\u0644\u0628\u062d\u062b \u0641\u064a \u0627\u0644\u0645\u0644\u0627\u062d\u0638\u0627\u062a',
             favoritesTitle: '\u0627\u0644\u0645\u0641\u0636\u0644\u0629', favoritesSubtitle: '\u0627\u0644\u0645\u0644\u0627\u062d\u0638\u0627\u062a \u0627\u0644\u0645\u0645\u064a\u0632\u0629 \u062a\u0638\u0647\u0631 \u0647\u0646\u0627.',
             tagsTitle: '\u0627\u0644\u0648\u0633\u0648\u0645', tagsSubtitle: '\u0646\u0638\u0645 \u0645\u0644\u0627\u062d\u0638\u0627\u062a\u0643 \u0628\u0627\u0644\u0648\u0633\u0648\u0645.',
@@ -2808,6 +2806,74 @@
           return (t[key] !== undefined) ? t[key] : (TRANSLATIONS['en'][key] || key);
         }
 
+        var LANGUAGE_OPTIONS = [
+          ['languageOptionEnglish', 'en'],
+          ['languageOptionSpanish', 'es'],
+          ['languageOptionFrench', 'fr'],
+          ['languageOptionGerman', 'de'],
+          ['languageOptionItalian', 'it'],
+          ['languageOptionPortuguese', 'pt'],
+          ['languageOptionJapanese', 'ja'],
+          ['languageOptionChinese', 'zh'],
+          ['languageOptionRussian', 'ru'],
+          ['languageOptionArabic', 'ar']
+        ];
+
+        function getLanguageNativeName(lang) {
+          var translation = TRANSLATIONS[lang] || TRANSLATIONS.en;
+          return translation.nativeName || TRANSLATIONS.en.nativeName;
+        }
+
+        function syncLanguageSelector(lang) {
+          var selectedLang = TRANSLATIONS[lang] ? lang : 'en';
+          var langBtn = document.getElementById('languageDropdownBtn');
+          if (langBtn) langBtn.textContent = getLanguageNativeName(selectedLang);
+          LANGUAGE_OPTIONS.forEach(function(pair) {
+            var option = document.getElementById(pair[0]);
+            if (!option) return;
+            option.textContent = getLanguageNativeName(pair[1]);
+            option.classList.toggle('active', pair[1] === selectedLang);
+            option.setAttribute('aria-selected', pair[1] === selectedLang ? 'true' : 'false');
+          });
+        }
+
+        function applyButtonTabIndex(root) {
+          var scope = root && root.querySelectorAll ? root : document;
+          scope.querySelectorAll('button').forEach(function(button) {
+            button.setAttribute('tabindex', '0');
+            if (!button.hasAttribute('type')) button.setAttribute('type', 'button');
+          });
+        }
+
+        function applyActionKeyboardSupport(root) {
+          var scope = root && root.querySelectorAll ? root : document;
+          scope.querySelectorAll('.topbar-right-action, .close-btn, .dropdown-item, .tag-add-btn').forEach(function(node) {
+            node.setAttribute('tabindex', '0');
+            node.setAttribute('role', 'button');
+            if (node.dataset.keyboardBound === 'true') return;
+            node.dataset.keyboardBound = 'true';
+            node.addEventListener('keydown', function(e) {
+              if (e.key !== 'Enter' && e.key !== ' ') return;
+              e.preventDefault();
+              node.click();
+            });
+          });
+        }
+
+        function observeButtonTabIndex() {
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              mutation.addedNodes.forEach(function(node) {
+                if (!node || node.nodeType !== 1) return;
+                if (node.tagName === 'BUTTON') node.setAttribute('tabindex', '0');
+                applyButtonTabIndex(node);
+                applyActionKeyboardSupport(node);
+              });
+            });
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
+        }
+
         function applyNoteFont(font, customFamily) {
           var family;
           if (font === 'serif') {
@@ -2833,6 +2899,7 @@
           var t = TRANSLATIONS[lang] || TRANSLATIONS['en'];
           document.documentElement.lang = lang;
           document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+          syncLanguageSelector(lang);
           var nb = document.getElementById('notesBtnNav'); if (nb) nb.textContent = t.notes;
           var tb = document.getElementById('tagsBtnNav'); if (tb) tb.textContent = t.tags;
           var fb = document.getElementById('favoritesBtnNav'); if (fb) fb.textContent = t.favorites;
@@ -2876,9 +2943,9 @@
                         <h2 style="margin-bottom: 12px;">${t('shareTitle')}</h2>
                         <div style="margin-bottom: 10px;">${t('shareVia')}</div>
                         <div style="display: flex; flex-direction: column; gap: 10px;">
-                          ${shareOptions.map(opt => `<button class="share-btn liquid-glass" data-id="${opt.id}" style="padding: 10px 0; color: inherit; font-size: 15px; cursor: pointer;">${opt.label}</button>`).join('')}
-                          <button class="share-btn liquid-glass" data-id="copy" style="padding: 10px 0;  color: inherit; font-size: 15px; cursor: pointer;">Copy</button>
-                          <button class="share-btn liquid-glass" data-id="close" style="padding: 10px 0;  color: inherit; font-size: 15px; cursor: pointer;">Close</button>
+                          ${shareOptions.map(opt => `<button type="button" class="share-btn liquid-glass" data-id="${opt.id}" style="padding: 10px 0; color: inherit; font-size: 15px; cursor: pointer;">${opt.label}</button>`).join('')}
+                          <button type="button" class="share-btn liquid-glass" data-id="copy" style="padding: 10px 0;  color: inherit; font-size: 15px; cursor: pointer;">Copy</button>
+                          <button type="button" class="share-btn liquid-glass" data-id="close" style="padding: 10px 0;  color: inherit; font-size: 15px; cursor: pointer;">Close</button>
                         </div>
                       </div>
                     `;
@@ -2909,6 +2976,9 @@
                       }
                     });
                     document.body.appendChild(dlg);
+                    applyButtonTabIndex(dlg);
+                    var firstShareButton = dlg.querySelector('.share-btn');
+                    if (firstShareButton) firstShareButton.focus();
                   }
 
                     function printNote(title, content) {
@@ -2991,31 +3061,15 @@
               try {
                 var now = Tone.now();
                 if (type === "recStart") {
-                  var s = new Tone.Synth({
-                    oscillator: { type: "sine" },
-                    envelope: {
-                      attack: 0.01,
-                      decay: 0.12,
-                      sustain: 0,
-                      release: 0.1,
-                    },
-                  }).toDestination();
+                  var s = new Tone.Synth().toDestination();
                   s.triggerAttackRelease("C5", "8n", now);
                   s.triggerAttackRelease("E5", "8n", now + 0.13);
                   setTimeout(function () {
                     s.dispose();
                   }, 900);
                 } else {
-                  var s2 = new Tone.Synth({
-                    oscillator: { type: "sine" },
-                    envelope: {
-                      attack: 0.01,
-                      decay: 0.15,
-                      sustain: 0,
-                      release: 0.12,
-                    },
-                  }).toDestination();
-                  s2.triggerAttackRelease("E4", "8n", now);
+                  var s2 = new Tone.Synth().toDestination();
+                  s2.triggerAttackRelease("G4", "8n", now);
                   s2.triggerAttackRelease("C4", "8n", now + 0.15);
                   setTimeout(function () {
                     s2.dispose();
@@ -4571,6 +4625,10 @@
         /* === SETTINGS INIT & EVENT HANDLERS === */
         (function() {
 
+          applyButtonTabIndex();
+          applyActionKeyboardSupport();
+          observeButtonTabIndex();
+
           /* --- Init state from localStorage --- */
           var lightToggle = document.getElementById('lightThemeToggle');
           if (lightToggle) lightToggle.checked = _settings.lightMode;
@@ -4593,9 +4651,7 @@
           }
 
           /* --- Update language button label --- */
-          var langBtn = document.getElementById('languageDropdownBtn');
-          var langT = TRANSLATIONS[_settings.language] || TRANSLATIONS['en'];
-          if (langBtn) langBtn.textContent = langT.nativeName;
+          syncLanguageSelector(_settings.language);
 
           /* --- Settings Modal open/close (no outside-click close) --- */
           var settingsModal = document.getElementById('settingsModal');
@@ -4727,30 +4783,16 @@
             closeFontDropdown();
           });
 
-          var langMap = [
-            ['languageOptionEnglish', 'en'],
-            ['languageOptionSpanish', 'es'],
-            ['languageOptionFrench', 'fr'],
-            ['languageOptionGerman', 'de'],
-            ['languageOptionItalian', 'it'],
-            ['languageOptionPortuguese', 'pt'],
-            ['languageOptionJapanese', 'ja'],
-            ['languageOptionChinese', 'zh'],
-            ['languageOptionRussian', 'ru'],
-            ['languageOptionArabic', 'ar']
-          ];
-          langMap.forEach(function(pair) {
+          LANGUAGE_OPTIONS.forEach(function(pair) {
             var el = document.getElementById(pair[0]);
             if (!el) return;
             el.addEventListener('click', function() {
               var lang = pair[1];
               _settings.language = lang;
               localStorage.setItem('sn_language', lang);
-              var lt = TRANSLATIONS[lang] || TRANSLATIONS['en'];
-              document.getElementById('languageDropdownBtn').textContent = lt.nativeName;
               closeLangDropdown();
               applyTranslations(lang);
-              showToast('Language changed');
+              showToast(_t('languageChanged'));
             });
           });
 
