@@ -15,10 +15,11 @@
     <meta name="author" content="Munetios" />
     <meta name="robots" content="index, follow" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="theme-color" content="#110736" />
     <link
       rel="stylesheet"
       href="https://api.munetios.com/beautiful-css/beautiful.css"
@@ -27,8 +28,8 @@
     <meta
       http-equiv="Content-Security-Policy"
       content="
-        default-src 'self' https://*.munetios.com https://www.munetios.com https://fonts.googleapis.com https://fonts.gstatic.com;
-        style-src 'self' https://api.munetios.com https://fonts.googleapis.com 'unsafe-inline';
+        default-src 'self' https://*.munetios.com https://www.munetios.com;
+        style-src 'self' https://api.munetios.com 'unsafe-inline';
         script-src 'self' 'nonce-Dm3NDi3ud893hbdDn3idjh30xJ3nfuN' https://api.munetios.com https://cdnjs.cloudflare.com;
         img-src 'self' data: blob: https://*.munetios.com https://www.munetios.com;
         media-src 'self' data: blob: https://*.munetios.com https://www.munetios.com;
@@ -40,1680 +41,25 @@
         upgrade-insecure-requests;
     "
     />
-    <style>
-      * {
-        font-family: "Google Sans Flex", sans-serif;
-        font-variation-settings: "ROND" 90;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        background: linear-gradient(to right, #3a0ea0, #571297);
-        min-height: 100vh;
-        color: #ffffff;
-        overflow-y: auto;
-      }
-      icon {
-        font-family: "Material Symbols Rounded", sans-serif;
-        font-size: 24px;
-      }
-      .topbar {
-        display: flex;
-        align-items: center;
-        position: fixed;
-        padding: 6px 12px;
-        top: 0;
-        z-index: 1000;
-        width: 100%;
-        justify-content: space-between;
-      }
-      .topbar-left {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .mobile-menu-btn {
-        padding: 9px 12px;
-        cursor: pointer;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        transition: background-color 0.3s ease;
-      }
-      .mobile-menu-btn:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 9px 12px;
-      }
-      .logo-text {
-        font-size: 20px;
-        font-weight: bold;
-        white-space: nowrap;
-      }
-      .navlinks {
-        display: flex;
-        gap: 10px;
-        padding: 13px 15px;
-        font-size: 18px;
-      }
-      .navlink {
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        border-radius: 459px;
-        padding: 1px 2px;
-      }
-      .navlink:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-      .topbar-right {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-      .topbar-middle {
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-      .topbar-right-actions {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        padding: 9px 12px;
-      }
-      .topbar-right-action {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border-radius: 155px;
-        padding: 1px 2px;
-        transition: background-color 0.3s ease;
-      }
-      .search-bar {
-        padding: 10px 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .search-bar input {
-        background: none;
-        border: none;
-        color: #ffffff;
-        outline: none;
-        width: 100%;
-        font-size: 16px;
-      }
-      .topbar-right-action:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-      @media (max-width: 1026px) {
-        .navlinks {
-          display: none;
-        }
-        .mobile-menu-btn {
-          display: flex;
-        }
-      }
-      @media (max-width: 713px) {
-        .logo-text {
-          display: none;
-        }
-      }
-      #mobileSearchBtn {
-        display: none;
-      }
-      @media (max-width: 540px) {
-        #mobileSearchBtn {
-          display: flex;
-        }
-        .search-bar {
-          display: none;
-        }
-      }
-      @media (max-width: 500px) {
-        .topbar-right-action-label {
-          display: none;
-        }
-      }
-      .main-content {
-        padding: 80px 20px 20px 20px;
-      }
-      .topbar-right-action:has(.topbar-right-action-label) {
-        gap: 10px;
-      }
-      .new-note_Modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 2000;
-        justify-content: center;
-        align-items: center;
-      }
-      .new-note_Modal.active {
-        display: flex;
-      }
-      .new-note_Modal-content {
-        width: 90%;
-        max-width: 900px;
-        max-height: 90vh;
-        border-radius: 12px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      }
-      .new__note-modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .new__note-modal-header h2 {
-        font-size: 24px;
-        font-weight: 500;
-      }
-      .new__note-modal-header-right {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .close-btn {
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 50%;
-        transition: background-color 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .close-btn:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-      .new__note-modal-body {
-        padding: 20px;
-        overflow-y: auto;
-        flex: 1;
-      }
-      .note-container {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .note-textarea-input {
-        width: 100%;
-        min-height: 300px;
-        padding: 16px;
-        background-color: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 8px;
-        color: #ffffff;
-        font-size: 16px;
-        font-family: inherit;
-        resize: vertical;
-        outline: none;
-        transition:
-          background-color 0.3s ease,
-          border-color 0.3s ease;
-      }
-      .note-textarea-input:focus {
-        background-color: rgba(255, 255, 255, 0.12);
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-      .note-textarea-input::placeholder {
-        color: rgba(255, 255, 255, 0.5);
-      }
-      .formatting-actionsbar {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 8px;
-        padding: 12px;
-        background-color: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        align-items: center;
-      }
-      .formatting-actions-left {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        overflow-x: auto;
-        scrollbar-width: none;
-      }
-      .actionitem-formatting {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        width: 40px;
-        height: 40px;
-        border-radius: 6px;
-        background-color: rgba(255, 255, 255, 0.08);
-        transition:
-          background-color 0.3s ease,
-          transform 0.2s ease;
-        color: #ffffff;
-      }
-      .actionitem-formatting:hover {
-        background-color: rgba(255, 255, 255, 0.15);
-        transform: scale(1.05);
-      }
-      .actionitem-formatting:active {
-        transform: scale(0.95);
-      }
-      .actionitem-formatting-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        height: 40px;
-        padding: 0 16px;
-        white-space: nowrap;
-        border-radius: 6px;
-        background-color: rgba(96, 21, 218, 0.849);
-        transition:
-          background-color 0.3s ease,
-          transform 0.2s ease;
-        color: #ffffff;
-      }
-      .actionitem-formatting-button:hover {
-        background-color: rgb(67, 13, 155);
-        transform: scale(1.05);
-      }
-      .actionitem-formatting-button:active {
-        transform: scale(0.95);
-      }
-      .formatting-actions-right {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .vl-divider {
-        height: 24px;
-        width: 1px;
-        background-color: rgba(255, 255, 255, 0.2);
-        margin: 0 4px;
-      }
-      /* ===== NOTE TITLE INPUT ===== */
-      .note-title-input {
-        width: 100%;
-        padding: 12px 16px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 8px;
-        color: #ffffff;
-        font-size: 20px;
-        font-weight: 600;
-        font-family: inherit;
-        outline: none;
-        transition:
-          background 0.3s,
-          border-color 0.3s;
-      }
-      .note-title-input::placeholder {
-        color: rgba(255, 255, 255, 0.35);
-      }
-      .note-title-input:focus {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.28);
-      }
-
-      /* ===== CONTENTEDITABLE EDITOR ===== */
-      .note-content-editor {
-        width: 100%;
-        min-height: 280px;
-        padding: 16px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 8px;
-        color: #ffffff;
-        font-size: 16px;
-        font-family: inherit;
-        outline: none;
-        overflow-y: auto;
-        line-height: 1.6;
-        transition:
-          background 0.3s,
-          border-color 0.3s;
-      }
-      .note-content-editor:focus {
-        background: rgba(255, 255, 255, 0.12);
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-      .note-content-editor:empty:before {
-        content: attr(placeholder);
-        color: rgba(255, 255, 255, 0.4);
-        pointer-events: none;
-        display: block;
-      }
-      .note-content-editor img {
-        max-width: 100%;
-        border-radius: 6px;
-        margin: 4px 0;
-      }
-      .actionitem-formatting.active {
-        background: rgba(255, 255, 255, 0.28);
-      }
-
-      /* ===== NOTES LIST CARDS ===== */
-      .notes-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-        gap: 16px;
-        margin-top: 20px;
-      }
-      .notes-empty {
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 15px;
-        margin-top: 24px;
-      }
-      .note-card {
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 14px;
-        padding: 18px;
-        cursor: pointer;
-        transition: all 0.25s ease;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        position: relative;
-      }
-      .note-card:hover {
-        background: rgba(255, 255, 255, 0.13);
-        transform: translateY(-3px);
-        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
-      }
-      .note-card-title {
-        font-size: 16px;
-        font-weight: 700;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .note-card-preview {
-        font-size: 13px;
-        opacity: 0.55;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        -webkit-box-orient: vertical;
-        line-height: 1.5;
-      }
-      .note-card-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 6px;
-      }
-      .note-card-date {
-        font-size: 11px;
-        opacity: 0.35;
-      }
-      .note-card-del {
-        padding: 4px;
-        border-radius: 50%;
-        cursor: pointer;
-        opacity: 0;
-        transition:
-          opacity 0.2s,
-          background 0.2s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .note-card:hover .note-card-del {
-        opacity: 0.6;
-      }
-      .note-card-del:hover {
-        opacity: 1 !important;
-        background: rgba(255, 80, 80, 0.25);
-      }
-
-      /* ===== VOICE NOTE MODAL ===== */
-      .generic-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.55);
-        z-index: 3000;
-        justify-content: center;
-        align-items: center;
-      }
-      .generic-modal.active {
-        display: flex;
-      }
-      .voice-note-modal-content {
-        width: 90%;
-        max-width: 480px;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
-        display: flex;
-        flex-direction: column;
-      }
-      .vm-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .vm-header h2 {
-        font-size: 20px;
-        font-weight: 500;
-      }
-      .vm-body {
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
-      .voice-waveform {
-        width: 100%;
-        height: 80px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.05);
-      }
-      .vnm-timer {
-        font-size: 36px;
-        font-weight: 300;
-        letter-spacing: 4px;
-        opacity: 0.9;
-      }
-      .vnm-status {
-        font-size: 13px;
-        opacity: 0.5;
-        height: 18px;
-      }
-      .vnm-controls {
-        display: flex;
-        gap: 16px;
-        align-items: center;
-      }
-      .vnm-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        cursor: pointer;
-        background: rgba(255, 255, 255, 0.1);
-        transition: all 0.2s ease;
-        border: 2px solid rgba(255, 255, 255, 0.15);
-      }
-      .vnm-btn:hover {
-        background: rgba(255, 255, 255, 0.18);
-        transform: scale(1.05);
-      }
-      .vnm-btn.record-btn {
-        background: rgba(220, 50, 50, 0.2);
-        border-color: rgba(220, 50, 50, 0.5);
-      }
-      .vnm-btn.record-btn:hover {
-        background: rgba(220, 50, 50, 0.35);
-      }
-      .vnm-btn.recording {
-        background: rgba(220, 50, 50, 0.5);
-        border-color: #e53935;
-        animation: pulse-rec 1.2s infinite;
-      }
-      @keyframes pulse-rec {
-        0%,
-        100% {
-          box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.5);
-        }
-        50% {
-          box-shadow: 0 0 0 10px rgba(229, 57, 53, 0);
-        }
-      }
-      .vnm-btn.done-btn {
-        width: auto;
-        border-radius: 50px;
-        padding: 0 22px;
-        gap: 8px;
-        background: rgba(96, 21, 218, 0.7);
-        border-color: rgba(150, 80, 255, 0.6);
-        font-size: 15px;
-      }
-      .vnm-btn.done-btn:hover {
-        background: rgba(96, 21, 218, 0.9);
-      }
-      .vnm-btn[disabled] {
-        opacity: 0.3;
-        pointer-events: none;
-      }
-
-      /* ===== VOICE NOTE PLAYER (in note) ===== */
-      .sn-voice-note {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.13);
-        border-radius: 50px;
-        padding: 10px 16px;
-        margin: 8px 0;
-        user-select: none;
-        max-width: 420px;
-      }
-      .sn-vn-play {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        background: rgba(96, 21, 218, 0.8);
-        flex-shrink: 0;
-        transition:
-          background 0.2s,
-          transform 0.15s;
-      }
-      .sn-vn-play:hover {
-        background: rgba(96, 21, 218, 1);
-        transform: scale(1.08);
-      }
-      .sn-vn-play icon {
-        font-size: 20px;
-      }
-      .sn-vn-time-wrap {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .sn-vn-time-label {
-        font-size: 11px;
-        opacity: 0.45;
-        display: flex;
-        justify-content: space-between;
-      }
-      .sn-vn-slider {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 100%;
-        height: 4px;
-        border-radius: 2px;
-        background: rgba(255, 255, 255, 0.2);
-        outline: none;
-        cursor: pointer;
-      }
-      .sn-vn-slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #fff;
-        cursor: pointer;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-      }
-      .sn-vn-vol-wrap {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
-      }
-      .sn-vn-vol-wrap icon {
-        font-size: 18px;
-        opacity: 0.6;
-      }
-      .sn-vn-vol {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 60px;
-        height: 4px;
-        border-radius: 2px;
-        background: rgba(255, 255, 255, 0.2);
-        outline: none;
-        cursor: pointer;
-      }
-      .sn-vn-vol::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #fff;
-        cursor: pointer;
-      }
-
-      /* ===== PAINT MODAL ===== */
-      .paint-modal-content {
-        width: 95%;
-        max-width: 860px;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
-        display: flex;
-        flex-direction: column;
-        max-height: 92vh;
-      }
-      .pm-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .pm-header h2 {
-        font-size: 20px;
-        font-weight: 500;
-      }
-      .pm-toolbar {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        padding: 12px 16px;
-        background: rgba(255, 255, 255, 0.04);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      .pm-tool-group {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .pm-tool-label {
-        font-size: 13px;
-        opacity: 0.6;
-      }
-      .pm-range {
-        -webkit-appearance: none;
-        appearance: none;
-        height: 4px;
-        border-radius: 2px;
-        background: rgba(255, 255, 255, 0.25);
-        outline: none;
-        cursor: pointer;
-        width: 90px;
-      }
-      .pm-range::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: #fff;
-        cursor: pointer;
-      }
-      .pm-color {
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        cursor: pointer;
-        padding: 0;
-        background: none;
-      }
-      .pm-btn {
-        padding: 6px 14px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 13px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        transition:
-          background 0.2s,
-          transform 0.15s;
-        color: #fff;
-        white-space: nowrap;
-      }
-      .pm-btn:hover {
-        background: rgba(255, 255, 255, 0.18);
-        transform: scale(1.03);
-      }
-      .pm-btn.active {
-        background: rgba(255, 255, 255, 0.25);
-        border-color: rgba(255, 255, 255, 0.4);
-      }
-      .pm-btn.done {
-        background: rgba(96, 21, 218, 0.8);
-        border-color: rgba(150, 80, 255, 0.5);
-        margin-left: auto;
-      }
-      .pm-btn.done:hover {
-        background: rgba(96, 21, 218, 1);
-      }
-      .paint-canvas-wrap {
-        flex: 1;
-        overflow: auto;
-        padding: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-      }
-      .paint-canvas {
-        border-radius: 8px;
-        cursor: crosshair;
-        background: #1a0a40;
-        display: block;
-        touch-action: none;
-      }
-
-      @keyframes slideInRight {
-        from {
-          right: -400px;
-          opacity: 0;
-        }
-        to {
-          right: 10px;
-          opacity: 1;
-        }
-      }
-      @keyframes slideOutRight {
-        from {
-          right: 10px;
-          opacity: 1;
-        }
-        to {
-          right: -400px;
-          opacity: 0;
-        }
-      }
-      .toast {
-        position: fixed;
-        right: 10px;
-        top: 10px;
-
-        background-color: rgba(74, 18, 206, 0.479);
-        backdrop-filter: blur(2px) saturate(180%);
-        color: #ffffff;
-        padding: 12px 24px;
-        border-radius: 834px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        opacity: 0;
-        pointer-events: none;
-        animation: slideInRight 0.4s ease-out forwards;
-      }
-      .toast.hide {
-        animation: slideOutRight 0.4s ease-in forwards;
-      }
-
-      /* â”€â”€ PAGE SYSTEM â”€â”€ */
-      .content-page {
-        display: none;
-      }
-      .content-page.active {
-        display: block;
-      }
-      .navlink.active {
-        background: rgba(255, 255, 255, 0.18);
-        font-weight: 600;
-      }
-
-      /* â”€â”€ CARD MORE MENU â”€â”€ */
-      #cardMoreMenu {
-        position: fixed;
-        z-index: 9999;
-        min-width: 190px;
-        border-radius: 16px;
-        padding: 8px;
-        display: none;
-        flex-direction: column;
-        gap: 2px;
-      }
-      #cardMoreMenu.visible {
-        display: flex;
-      }
-      .card-menu-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 14px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 15px;
-        transition: background 0.15s;
-      }
-      .card-menu-item:hover {
-        background: rgba(255, 255, 255, 0.15);
-      }
-      .card-menu-item icon {
-        font-size: 20px;
-      }
-
-      /* â”€â”€ NOTE CARD MORE ICON â”€â”€ */
-      .note-card-more {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        opacity: 0.6;
-        transition: opacity 0.2s;
-        border-radius: 50%;
-        padding: 2px;
-      }
-      .note-card-more:hover {
-        opacity: 1;
-        background: rgba(255, 255, 255, 0.12);
-      }
-
-      /* â”€â”€ CARD IMAGE THUMBNAIL â”€â”€ */
-      .note-card-thumb {
-        width: 100%;
-        max-height: 130px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin-bottom: 8px;
-        display: block;
-      }
-
-      /* â”€â”€ NOTE PREVIEW MODAL â”€â”€ */
-      #notePreviewModal {
-        z-index: 4000;
-      }
-      .npreview-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        flex-shrink: 0;
-      }
-      .npreview-header h2 {
-        font-size: 20px;
-        font-weight: 600;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        flex: 1;
-      }
-      .npreview-actions {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        flex-shrink: 0;
-      }
-      .npreview-action-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        cursor: pointer;
-        background: rgba(255, 255, 255, 0.1);
-        transition: background 0.2s;
-      }
-      .npreview-action-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
-      .npreview-body {
-        padding: 16px 20px;
-        overflow-y: auto;
-        font-size: 15px;
-        line-height: 1.65;
-        flex: 1;
-      }
-      .npreview-body img {
-        max-width: 100%;
-        border-radius: 6px;
-      }
-      .npreview-body .sn-voice-note {
-        pointer-events: all;
-      }
-      .npreview-body .sn-vn-slider,
-      .npreview-body .sn-vn-vol {
-        pointer-events: all;
-      }
-
-      /* Voice note player pointer-event fix */
-      .sn-vn-slider,
-      .sn-vn-vol {
-        pointer-events: all !important;
-      }
-      .sn-vn-play {
-        pointer-events: all !important;
-      }
-
-      /* â”€â”€ TAGS PAGE â”€â”€ */
-      .tags-page-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-      .tag-chip-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        max-width: 700px;
-        margin-top: 12px;
-      }
-      .tag-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 7px 14px;
-        border-radius: 50px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        font-size: 14px;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .tag-chip:hover {
-        background: rgba(255, 255, 255, 0.18);
-      }
-      .tag-chip-del {
-        opacity: 0.5;
-        font-size: 16px;
-        cursor: pointer;
-        line-height: 1;
-        display: flex;
-        align-items: center;
-      }
-      .tag-chip-del:hover {
-        opacity: 1;
-      }
-      .tag-add-row {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        margin-bottom: 8px;
-        max-width: 420px;
-      }
-      .tag-add-input {
-        flex: 1;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 50px;
-        padding: 10px 16px;
-        color: #fff;
-        font-size: 15px;
-        outline: none;
-      }
-      .tag-add-input::placeholder {
-        opacity: 0.4;
-      }
-      .tag-add-btn {
-        padding: 10px 18px;
-        border-radius: 50px;
-        background: rgba(96, 21, 218, 0.7);
-        border: 1px solid rgba(150, 80, 255, 0.5);
-        color: #fff;
-        font-size: 15px;
-        cursor: pointer;
-        white-space: nowrap;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .tag-add-btn:hover {
-        background: rgba(96, 21, 218, 0.9);
-      }
-
-      /* â”€â”€ TAG SELECTOR MODAL â”€â”€ */
-      #tagSelectorModal {
-        z-index: 4100;
-      }
-      .tag-selector-list {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        padding: 8px 0;
-        max-height: 320px;
-        overflow-y: auto;
-      }
-
-      /* â”€â”€ PAGE SECTION TITLES â”€â”€ */
-      .page-section-title {
-        font-size: 26px;
-        font-weight: 700;
-        margin-bottom: 6px;
-      }
-      .page-section-subtitle {
-        opacity: 0.45;
-        font-size: 14px;
-        margin-bottom: 20px;
-      }
-      .mobile-search-bar {
-        display: none;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 12px;
-      }
-      .mobile-search-bar input {
-        all: unset;
-        width: 100%;
-      }
-      .back-btn {
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 102px;
-        transition: background 0.2s;
-      }
-      .back-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
-
-      /* ===== MOBILE SIDEBAR OVERLAY ===== */
-      .mobile-sidebar-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        z-index: 5000;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(2px);
-      }
-      .mobile-sidebar-overlay.active {
-        display: block;
-      }
-      .mobile-sidebar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 280px;
-        max-width: 85vw;
-        background: rgba(83, 16, 206, 0.322);
-        backdrop-filter: blur(2px);
-        display: flex;
-        flex-direction: column;
-        animation: sidebarSlideIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      }
-      .mobile-sidebar-overlay:not(.active) .mobile-sidebar {
-        animation: sidebarSlideOut 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      }
-      @keyframes sidebarSlideIn {
-        from { transform: translateX(-100%); }
-        to   { transform: translateX(0); }
-      }
-      @keyframes sidebarSlideOut {
-        from { transform: translateX(0); }
-        to   { transform: translateX(-100%); }
-      }
-      .mobile-sidebar-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px 16px 12px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      }
-      .mobile-sidebar-title {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .mobile-sidebar-title img {
-        width: 28px;
-        height: 28px;
-      }
-      .mobile-sidebar-title span {
-        font-size: 17px;
-        font-weight: 700;
-        opacity: 0.95;
-      }
-      .mobile-sidebar-close {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .mobile-sidebar-close:hover {
-        background: rgba(255, 255, 255, 0.15);
-      }
-      .mobile-sidebar-nav {
-        display: flex;
-        flex-direction: column;
-        padding: 12px 10px;
-        overflow-y: auto;
-        gap: 4px;
-        flex: 1;
-      }
-      .mobile-sidebar-navlink {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 13px 16px;
-        border-radius: 12px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 500;
-        transition: background 0.18s;
-      }
-      .mobile-sidebar-navlink:hover {
-        background: rgba(255, 255, 255, 0.12);
-      }
-      .mobile-sidebar-navlink.active {
-        background: rgba(255, 255, 255, 0.18);
-        font-weight: 700;
-      }
-      .mobile-sidebar-navlink icon {
-        font-size: 22px;
-        opacity: 0.85;
-      }
-      .custom-dropdown-wrapper {
-        position: relative;
-        display: none;
-        border-radius: 12px;
-        padding: 8px;
-        width: auto;
-        z-index: 1000000000000;
-        overflow-y: auto;
-        max-height: 600px;
-      }
-      .dropdown-item {
-        padding: 10px 12px;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .dropdown-item:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      /* ===== SETTINGS MODAL ===== */
-      .settings-modal-content {
-        width: 95%;
-        max-width: 500px;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
-        display: flex;
-        flex-direction: column;
-        max-height: 92vh;
-      }
-      .settings-modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .settings-modal-header h2 {
-        font-size: 22px;
-        font-weight: 600;
-      }
-      .settings-modal-header-right {
-        display: flex;
-        align-items: center;
-      }
-      .settings-modal-body {
-        padding: 20px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-      .settings-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 14px 16px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 10px;
-      }
-      .settings-label {
-        font-size: 15px;
-        font-weight: 500;
-        min-width: 120px;
-      }
-      .settings-button {
-        padding: 10px 18px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        color: #ffffff;
-        font-size: 14px;
-        cursor: pointer;
-        white-space: nowrap;
-        transition: background 0.2s, transform 0.15s;
-        font-family: inherit;
-      }
-      .settings-button:hover {
-        background: rgba(255, 255, 255, 0.18);
-        transform: scale(1.03);
-      }
-      .settings-button:active {
-        transform: scale(0.98);
-      }
-
-      /* ===== CUSTOM CHECKBOX ===== */
-      .settings-checkbox {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        width: 48px;
-        height: 28px;
-        border-radius: 14px;
-        background-color: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        cursor: pointer;
-        position: relative;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-        outline: none;
-      }
-
-      .settings-checkbox::before {
-        content: '';
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: #ffffff;
-        top: 1px;
-        left: 2px;
-        transition: left 0.3s ease, box-shadow 0.2s ease;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      }
-
-      .settings-checkbox:hover {
-        background-color: rgba(255, 255, 255, 0.22);
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-
-      .settings-checkbox:checked {
-        background-color: rgba(96, 21, 218, 0.8);
-        border-color: rgba(150, 80, 255, 0.6);
-      }
-
-      .settings-checkbox:checked::before {
-        left: 22px;
-        box-shadow: 0 2px 6px rgba(96, 21, 218, 0.4);
-      }
-
-      .settings-checkbox:checked:hover {
-        background-color: rgba(96, 21, 218, 0.95);
-        border-color: rgba(150, 80, 255, 0.8);
-      }
-
-      .settings-checkbox:active::before {
-        box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-      }
-
-      .settings-checkbox:focus {
-        box-shadow: 0 0 0 3px rgba(96, 21, 218, 0.2);
-      }
-
-      /* ===== ADVANCED SETTINGS SECTION ===== */
-      .advanced-section {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding-top: 16px;
-        margin-top: 16px;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-      }
-      .advanced-settings-button {
-        padding: 12px 16px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: #ffffff;
-        font-size: 14px;
-        cursor: pointer;
-        font-weight: 500;
-        font-family: inherit;
-        white-space: nowrap;
-        transition: all 0.2s ease;
-        text-align: left;
-        user-select: none;
-      }
-      .advanced-settings-button:hover {
-        background: rgba(255, 255, 255, 0.14);
-        transform: translateX(2px);
-        border-color: rgba(255, 255, 255, 0.25);
-      }
-      .advanced-settings-button:active {
-        transform: translateX(0px);
-      }
-
-      /* ===== LIGHT MODE ===== */
-      body.light-mode {
-        background: linear-gradient(135deg, #ede8ff 0%, #d8eaff 100%);
-        color: #1a103a;
-      }
-      body.light-mode h1,
-      body.light-mode .page-section-title { color: #1a103a; }
-      body.light-mode .page-section-subtitle { color: rgba(26,16,58,0.5); }
-      body.light-mode .logo-text { color: #1a103a; }
-      body.light-mode .navlinks { color: #1a103a; }
-      body.light-mode .navlink:hover { background: rgba(0,0,0,0.08); }
-      body.light-mode .navlink.active { background: rgba(0,0,0,0.12); color: #1a103a; }
-      body.light-mode .topbar-right-action-label { color: #1a103a; }
-      body.light-mode .topbar-right-action:hover { background: rgba(0,0,0,0.08); }
-      body.light-mode .mobile-menu-btn:hover { background: rgba(0,0,0,0.08); }
-      body.light-mode .search-bar input { color: #1a103a; }
-      body.light-mode .search-bar input::placeholder { color: rgba(26,16,58,0.4); }
-      body.light-mode .mobile-search-bar input { color: #1a103a; }
-      body.light-mode .mobile-search-bar input::placeholder { color: rgba(26,16,58,0.4); }
-      body.light-mode .note-card {
-        background: rgba(255,255,255,0.72);
-        border-color: rgba(100,60,200,0.14);
-        color: #1a103a;
-      }
-      body.light-mode .note-card:hover {
-        background: rgba(255,255,255,0.92);
-        box-shadow: 0 10px 28px rgba(80,40,180,0.13);
-      }
-      body.light-mode .note-card-title { color: #1a103a; }
-      body.light-mode .note-card-preview { color: rgba(26,16,58,0.6); }
-      body.light-mode .note-card-date { color: rgba(26,16,58,0.4); }
-      body.light-mode .note-card-del:hover { background: rgba(200,30,30,0.12); }
-      body.light-mode .notes-empty { color: rgba(26,16,58,0.4); }
-      body.light-mode .note-title-input {
-        background: rgba(255,255,255,0.7);
-        border-color: rgba(100,60,200,0.18);
-        color: #1a103a;
-      }
-      body.light-mode .note-title-input::placeholder { color: rgba(26,16,58,0.35); }
-      body.light-mode .note-title-input:focus {
-        background: rgba(255,255,255,0.92);
-        border-color: rgba(100,60,200,0.38);
-      }
-      body.light-mode .note-content-editor {
-        background: rgba(255,255,255,0.7);
-        border-color: rgba(100,60,200,0.18);
-        color: #1a103a;
-      }
-      body.light-mode .note-content-editor:empty:before { color: rgba(26,16,58,0.35); }
-      body.light-mode .note-content-editor:focus {
-        background: rgba(255,255,255,0.92);
-        border-color: rgba(100,60,200,0.38);
-      }
-      body.light-mode .formatting-actionsbar { background: rgba(0,0,0,0.05); }
-      body.light-mode .actionitem-formatting {
-        background: rgba(0,0,0,0.06);
-        color: #1a103a;
-      }
-      body.light-mode .actionitem-formatting:hover { background: rgba(0,0,0,0.11); }
-      body.light-mode .actionitem-formatting.active { background: rgba(0,0,0,0.18); }
-      body.light-mode .vl-divider { background-color: rgba(0,0,0,0.15); }
-      body.light-mode .new__note-modal-header { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .new__note-modal-header h2 { color: #1a103a; }
-      body.light-mode .close-btn:hover { background: rgba(0,0,0,0.1); }
-      body.light-mode .settings-modal-header { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .settings-modal-header h2 { color: #1a103a; }
-      body.light-mode .settings-item {
-        background: rgba(255,255,255,0.55);
-        border-color: rgba(100,60,200,0.14);
-      }
-      body.light-mode .settings-label { color: #1a103a; }
-      body.light-mode .settings-button {
-        background: rgba(0,0,0,0.06);
-        border-color: rgba(0,0,0,0.14);
-        color: #1a103a;
-      }
-      body.light-mode .settings-button:hover { background: rgba(0,0,0,0.1); }
-      body.light-mode .advanced-settings-button {
-        background: rgba(0,0,0,0.05);
-        border-color: rgba(0,0,0,0.12);
-        color: #1a103a;
-      }
-      body.light-mode .advanced-settings-button:hover {
-        background: rgba(0,0,0,0.09);
-        border-color: rgba(0,0,0,0.2);
-      }
-      body.light-mode .advanced-section { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .settings-checkbox { background-color: rgba(0,0,0,0.1); border-color: rgba(0,0,0,0.2); }
-      body.light-mode .settings-checkbox::before { background-color: #6015da; }
-      body.light-mode .settings-checkbox:checked { background-color: rgba(96,21,218,0.85); border-color: rgba(150,80,255,0.7); }
-      body.light-mode .settings-checkbox:checked::before { background-color: #ffffff; }
-      body.light-mode .vm-header { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .vm-header h2 { color: #1a103a; }
-      body.light-mode .vnm-timer { color: #1a103a; }
-      body.light-mode .vnm-status { color: rgba(26,16,58,0.5); }
-      body.light-mode .vnm-btn {
-        background: rgba(0,0,0,0.06);
-        border-color: rgba(0,0,0,0.14);
-        color: #1a103a;
-      }
-      body.light-mode .vnm-btn:hover { background: rgba(0,0,0,0.1); }
-      body.light-mode .pm-header { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .pm-header h2 { color: #1a103a; }
-      body.light-mode .pm-toolbar { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
-      body.light-mode .pm-tool-label { color: #1a103a; }
-      body.light-mode .pm-btn {
-        background: rgba(0,0,0,0.06);
-        border-color: rgba(0,0,0,0.12);
-        color: #1a103a;
-      }
-      body.light-mode .pm-btn:hover { background: rgba(0,0,0,0.1); }
-      body.light-mode .npreview-header { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .npreview-header h2 { color: #1a103a; }
-      body.light-mode .npreview-action-btn { background: rgba(0,0,0,0.06); color: #1a103a; }
-      body.light-mode .npreview-action-btn:hover { background: rgba(0,0,0,0.12); }
-      body.light-mode .npreview-body { color: #1a103a; }
-      body.light-mode .tag-chip {
-        background: rgba(255,255,255,0.6);
-        border-color: rgba(100,60,200,0.15);
-        color: #1a103a;
-      }
-      body.light-mode .tag-chip:hover { background: rgba(255,255,255,0.88); }
-      body.light-mode .tag-chip-del { color: rgba(26,16,58,0.5); }
-      body.light-mode .tag-add-input {
-        background: rgba(255,255,255,0.6);
-        border-color: rgba(100,60,200,0.18);
-        color: #1a103a;
-      }
-      body.light-mode .tag-add-input::placeholder { opacity: 0.4; color: #1a103a; }
-      body.light-mode #cardMoreMenu { color: #1a103a; }
-      body.light-mode .card-menu-item { color: #1a103a; }
-      body.light-mode .card-menu-item:hover { background: rgba(0,0,0,0.07); }
-      body.light-mode .mobile-sidebar {
-        background: rgba(220,210,255,0.95);
-        backdrop-filter: blur(2px);
-      }
-      body.light-mode .mobile-sidebar-header { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .mobile-sidebar-title span { color: #1a103a; }
-      body.light-mode .mobile-sidebar-navlink { color: #1a103a; }
-      body.light-mode .mobile-sidebar-navlink:hover { background: rgba(0,0,0,0.07); }
-      body.light-mode .mobile-sidebar-navlink.active { background: rgba(0,0,0,0.12); }
-      body.light-mode .mobile-sidebar-close { color: #1a103a; }
-      body.light-mode .dropdown-item { color: #1a103a; }
-      body.light-mode .dropdown-item:hover { background: rgba(0,0,0,0.07); }
-      body.light-mode .sn-voice-note {
-        background: rgba(0,0,0,0.05);
-        border-color: rgba(0,0,0,0.1);
-        color: #1a103a;
-      }
-      body.light-mode .voice-waveform { background: rgba(0,0,0,0.04); }
-      body.light-mode .back-btn { color: #1a103a; }
-      body.light-mode .back-btn:hover { background: rgba(0,0,0,0.08); }
-
-      /* ===== CUSTOM FONT INPUT ROW ===== */
-      .custom-font-row {
-        display: none;
-        align-items: center;
-        gap: 8px;
-        margin-top: 6px;
-        width: 100%;
-      }
-      .custom-font-row.visible { display: flex; }
-      .custom-font-input {
-        flex: 1;
-        background: rgba(255,255,255,0.08);
-        border: 1px solid rgba(255,255,255,0.18);
-        border-radius: 8px;
-        padding: 8px 12px;
-        color: #fff;
-        font-size: 14px;
-        outline: none;
-        font-family: inherit;
-      }
-      body.light-mode .custom-font-input {
-        background: rgba(0,0,0,0.06);
-        border-color: rgba(0,0,0,0.15);
-        color: #1a103a;
-      }
-      .custom-font-input::placeholder { color: rgba(255,255,255,0.4); }
-      body.light-mode .custom-font-input::placeholder { color: rgba(26,16,58,0.35); }
-      .custom-font-apply {
-        padding: 8px 14px;
-        border-radius: 8px;
-        background: rgba(96,21,218,0.7);
-        border: 1px solid rgba(150,80,255,0.5);
-        color: #fff;
-        font-size: 13px;
-        cursor: pointer;
-        white-space: nowrap;
-        font-family: inherit;
-      }
-      .custom-font-apply:hover { background: rgba(96,21,218,0.9); }
-
-      /* ===== HELP MODAL ===== */
-      .help-modal-content {
-        width: 95%;
-        max-width: 520px;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
-        display: flex;
-        flex-direction: column;
-        max-height: 92vh;
-      }
-      .help-modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .help-modal-header h2 {
-        font-size: 22px;
-        font-weight: 600;
-      }
-      .help-tab-bar {
-        display: flex;
-        gap: 4px;
-        padding: 12px 20px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
-      .help-tab {
-        padding: 8px 18px;
-        border-radius: 8px 8px 0 0;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        color: rgba(255,255,255,0.55);
-        background: transparent;
-        border: none;
-        font-family: inherit;
-        transition: color 0.2s, background 0.2s;
-      }
-      .help-tab:hover { color: #fff; background: rgba(255,255,255,0.07); }
-      .help-tab.active { color: #fff; background: rgba(255,255,255,0.12); }
-      .help-modal-body { overflow-y: auto; flex: 1; }
-      .help-tab-panel {
-        display: none;
-        padding: 20px;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .help-tab-panel.active { display: flex; }
-      .help-section-title {
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
-        color: rgba(255,255,255,0.45);
-        margin-bottom: 2px;
-        margin-top: 6px;
-      }
-      .help-section-title:first-child { margin-top: 0; }
-      .help-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 12px 14px;
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 10px;
-      }
-      .help-item icon { font-size: 20px; opacity: 0.8; flex-shrink: 0; margin-top: 1px; }
-      .help-item-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-      .help-item-desc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; }
-      .faq-item { border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
-      .faq-question {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 13px 14px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        background: rgba(255,255,255,0.06);
-        transition: background 0.2s;
-        user-select: none;
-      }
-      .faq-question:hover { background: rgba(255,255,255,0.1); }
-      .faq-question icon { font-size: 18px; opacity: 0.6; transition: transform 0.22s; flex-shrink: 0; }
-      .faq-item.open .faq-question icon { transform: rotate(180deg); }
-      .faq-answer {
-        display: none;
-        padding: 12px 14px;
-        font-size: 13px;
-        color: rgba(255,255,255,0.7);
-        line-height: 1.6;
-        border-top: 1px solid rgba(255,255,255,0.07);
-        background: rgba(255,255,255,0.03);
-      }
-      .faq-item.open .faq-answer { display: block; }
-      .help-modal-footer {
-        padding: 14px 20px;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-      }
-      .help-footer-link {
-        font-size: 13px;
-        color: rgba(255,255,255,0.5);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .help-footer-link:hover { color: #fff; text-decoration: underline; }
-      /* Light mode — help modal */
-      body.light-mode .help-modal-header { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .help-modal-header h2 { color: #1a103a; }
-      body.light-mode .help-tab-bar { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .help-tab { color: rgba(26,16,58,0.45); }
-      body.light-mode .help-tab:hover { color: #1a103a; background: rgba(0,0,0,0.06); }
-      body.light-mode .help-tab.active { color: #1a103a; background: rgba(0,0,0,0.1); }
-      body.light-mode .help-section-title { color: rgba(26,16,58,0.45); }
-      body.light-mode .help-item { background: rgba(255,255,255,0.55); border-color: rgba(100,60,200,0.14); }
-      body.light-mode .help-item-title { color: #1a103a; }
-      body.light-mode .help-item-desc { color: rgba(26,16,58,0.6); }
-      body.light-mode .faq-item { border-color: rgba(0,0,0,0.12); }
-      body.light-mode .faq-question { background: rgba(255,255,255,0.55); color: #1a103a; }
-      body.light-mode .faq-question:hover { background: rgba(255,255,255,0.85); }
-      body.light-mode .faq-answer { background: rgba(255,255,255,0.35); color: rgba(26,16,58,0.7); border-color: rgba(0,0,0,0.07); }
-      body.light-mode .help-modal-footer { border-color: rgba(0,0,0,0.1); }
-      body.light-mode .help-footer-link { color: rgba(26,16,58,0.45); }
-      body.light-mode .help-footer-link:hover { color: #1a103a; }
-
-    </style>
+    <link rel="stylesheet" href="/munetios-ui/munetios-ui-v4.css" />
+    <link rel="stylesheet" href="/account/account-menu.css" />
+    <link rel="stylesheet" href="./supanotes.css" />
+    <link rel="stylesheet" href="./supanotes-features.css" />
+    <script defer src="/munetios-ui/munetios-ui-v4.js"></script>
+    <script defer src="/account/account-i18n.js"></script>
+    <script defer src="/account/account-core.js"></script>
+    <script defer src="/account/account-menu.js"></script>
+    <script defer src="./supanotes-toasts-i18n.js"></script>
+    <script defer src="./supanotes-features-i18n.js"></script>
+    <script defer src="./supanotes-sync.js"></script>
+    <script defer src="./supanotes-features.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body class="mu-root">
+    <a class="mu-skip-link" href="#notesPage" data-sf="skipToNotes">Skip to notes</a>
     <!-- Mobile Sidebar Overlay -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay">
       <div class="mobile-sidebar">
@@ -1735,6 +81,9 @@
           </div>
           <div class="mobile-sidebar-navlink" data-page="favoritesPage">
             <icon>star</icon> Favorites
+          </div>
+          <div class="mobile-sidebar-navlink" data-page="archivePage">
+            <icon>archive</icon> <span data-sf="archive">Archive</span>
           </div>
           <div class="mobile-sidebar-navlink" data-page="trashPage">
             <icon>delete</icon> Trash
@@ -1768,6 +117,7 @@
             <div class="navlink" id="favoritesBtnNav" data-page="favoritesPage">
               Favorites
             </div>
+            <div class="navlink" id="archiveBtnNav" data-page="archivePage" data-sf="archive">Archive</div>
             <div class="navlink" id="trashBtnNav" data-page="trashPage">
               Trash
             </div>
@@ -1776,7 +126,7 @@
         <div class="topbar-right">
           <div class="search-bar liquid-glass">
             <icon>search</icon>
-            <input type="text" placeholder="Search notes" id="searchInput" />
+            <input type="search" placeholder="Search notes" id="searchInput" aria-label="Search notes" />
           </div>
           <div class="topbar-right-actions liquid-glass">
             <div
@@ -1799,6 +149,12 @@
             </div>
             <div class="topbar-right-action" id="helpBtn" title="Help">
               <icon>help</icon>
+            </div>
+            <div class="munetios-account-slot" data-munetios-account>
+              <a class="account-sign-in mu-btn mu-btn-primary" href="/signin" aria-label="Sign in" title="Sign in" hidden>
+                <span class="mu-icon" aria-hidden="true">login</span>
+                <span data-signin-label>Sign in</span>
+              </a>
             </div>
           </div>
         </div>
@@ -1843,6 +199,11 @@
           <div class="tag-chip-list" id="tagChipList"></div>
         </div>
 
+        <div class="content-page" id="archivePage">
+          <h1 class="page-section-title" data-sf="archive">Archive</h1>
+          <p class="page-section-subtitle" data-sf="archiveSubtitle">Archived notes stay out of your main list until you need them.</p>
+          <div class="notes-list" id="archiveList"></div>
+        </div>
         <div class="content-page" id="trashPage">
           <h1 class="page-section-title">Trash</h1>
           <p class="page-section-subtitle">
@@ -1854,7 +215,10 @@
     </supanotes-container>
     <div class="custom-dropdown-wrapper liquid-glass" id="noteFontDropdown">
       <div class="dropdown-item" id="fontOptionDefault">
-        Sans
+        Munetios UI v4 Font
+      </div>
+      <div class="dropdown-item" id="fontOptionFlex">
+        Google Sans Flex
       </div>
       <div class="dropdown-item" id="fontOptionSerif">
         Serif
@@ -2107,7 +471,7 @@
             <span
               id="pmBrushSizeVal"
               style="
-                font-size: 13px;
+                font-size: 18px;
                 opacity: 0.7;
                 min-width: 22px;
                 text-align: right;
@@ -2130,7 +494,7 @@
           </div>
           <div class="pm-btn done" id="pmDoneBtn" style="margin-left: auto">
             <icon
-              style="font-size: 16px; vertical-align: middle; margin-right: 4px"
+              style="font-size: 18px; vertical-align: middle; margin-right: 4px"
               >check</icon
             >Insert
           </div>
@@ -2165,14 +529,14 @@
             id="linkTextInput"
             class="note-title-input"
             placeholder="Display text (optional)"
-            style="font-size: 15px; font-weight: 400"
+            style="font-size: 18px; font-weight: 400"
           />
           <input
             type="url"
             id="linkUrlInput"
             class="note-title-input"
             placeholder="https://..."
-            style="font-size: 15px; font-weight: 400"
+            style="font-size: 18px; font-weight: 400"
           />
           <div style="display: flex; gap: 10px; justify-content: flex-end">
             <div
@@ -2185,7 +549,7 @@
                 gap: 8px;
                 background: rgba(96, 21, 218, 0.7);
                 border-color: rgba(150, 80, 255, 0.6);
-                font-size: 15px;
+                font-size: 18px;
                 height: 44px;
                 cursor: pointer;
               "
@@ -2213,7 +577,7 @@
           max-width: 680px;
           max-height: 90vh;
           display: flex;
-          border-radius: 12px;
+          border-radius: var(--mu-radius-xl);
           flex-direction: column;
           width: 95%;
         "
@@ -2296,7 +660,7 @@
     <div class="generic-modal" id="tagSelectorModal">
       <div
         class="note-modal-content liquid-glass"
-        style="max-width: 380px; width: 92%; border-radius: 12px"
+        style="max-width: 380px; width: 92%; border-radius: var(--mu-radius-xl)"
       >
         <div class="new__note-modal-header">
           <h2>Add to Tag</h2>
@@ -2345,11 +709,11 @@
           </div>
           <div class="advanced-section">
             <button class="advanced-settings-button" id="moveToTrashAllNotesBtn">Move All Notes to Trash</button>
-            <button class="advanced-settings-button" id="exportAllNotesBtn" style="color: #14ce5f;">Export All Notes</button>
-            <button class="advanced-settings-button" id="importNotesBtn" style="color: #1e90ff;">Import Notes</button>
+            <button class="advanced-settings-button is-success" id="exportAllNotesBtn">Export All Notes</button>
+            <button class="advanced-settings-button is-info" id="importNotesBtn">Import Notes</button>
             <input type="file" id="importNotesFileInput" accept=".json" style="display:none" />
-            <button class="advanced-settings-button" id="resetEncryptionKeyBtn" style="color: #cec111;">Reset Encryption Key</button>
-            <button class="advanced-settings-button" id="deleteAllNotesBtn" style="color: #ce1411;">Delete Everything</button>
+            <button class="advanced-settings-button is-warning" id="resetEncryptionKeyBtn">Reset Encryption Key</button>
+            <button class="advanced-settings-button is-danger" id="deleteAllNotesBtn">Delete Everything</button>
           </div>
         </div>
       </div>
@@ -2478,12 +842,12 @@
           display: flex;
           flex-direction: column;
           gap: 18px;
-          border-radius: 12px;
+          border-radius: var(--mu-radius-xl);
         "
       >
         <h2
           id="confirmModalMsg"
-          style="font-size: 17px; font-weight: 600; line-height: 1.4"
+          style="font-size: 18px; font-weight: 400; line-height: 1.4"
         >
           Are you sure?
         </h2>
@@ -2495,7 +859,7 @@
               width: auto;
               border-radius: 50px;
               padding: 0 22px;
-              font-size: 15px;
+              font-size: 18px;
               height: 40px;
               cursor: pointer;
             "
@@ -2509,7 +873,7 @@
               width: auto;
               border-radius: 50px;
               padding: 0 22px;
-              font-size: 15px;
+              font-size: 18px;
               height: 40px;
               cursor: pointer;
               background: rgba(200, 30, 30, 0.7);
@@ -2525,16 +889,18 @@
     <script nonce="Dm3NDi3ud893hbdDn3idjh30xJ3nfuN">
       // Github copilot do not remove these lines
       function showToast(message) {
+        var info = window.SupaNotesToast ? window.SupaNotesToast(message) : { text: String(message), type: "success" };
+        if (window.MunetiosUI && window.MunetiosUI.toast) {
+          window.MunetiosUI.toast(info.text, { type: info.type });
+          return;
+        }
+        message = info.text;
         const toast = document.createElement("div");
         toast.className = "toast";
+        toast.setAttribute("role", "status");
         toast.textContent = message;
         document.body.appendChild(toast);
-        setTimeout(() => {
-          toast.classList.add("hide");
-          setTimeout(() => {
-            toast.remove();
-          }, 400);
-        }, 3000);
+        setTimeout(() => toast.remove(), 3000);
       }
 
       // Github copilot do not remove these lines
@@ -2544,6 +910,15 @@
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
       (function () {
         "use strict";
+        var H = window.SupaNotesHooks || (window.SupaNotesHooks = {});
+        function snEsc(value) {
+          return String(value == null ? "" : value).replace(/[&<>"']/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+          });
+        }
+        function snChanged() {
+          document.dispatchEvent(new CustomEvent("supanotes-changed"));
+        }
 
         /* ─── CUSTOM CONFIRM MODAL ───────────────── */
         var _confirmCallback = null;
@@ -2879,9 +1254,11 @@
           if (font === 'serif') {
             family = 'Georgia, "Times New Roman", serif';
           } else if (font === 'custom' && customFamily) {
-            family = '"' + customFamily + '", "Google Sans Flex", sans-serif';
+            family = '"' + String(customFamily).replace(/["\\]/g, "") + '", "Munetios UI v4 Font", sans-serif';
+          } else if (font === 'flex') {
+            family = '"Google Sans Flex", "Munetios UI v4 Font", sans-serif';
           } else {
-            family = '"Google Sans Flex", sans-serif';
+            family = '"Munetios UI v4 Font", sans-serif';
           }
           var noteEd = document.getElementById('noteContent');
           var titleInp = document.getElementById('noteTitleInput');
@@ -2893,6 +1270,8 @@
 
         function applyLightMode(isLight) {
           document.body.classList.toggle('light-mode', isLight);
+          if (window.MunetiosUI && window.MunetiosUI.theme) window.MunetiosUI.theme.set(isLight ? 'light' : 'dark');
+          else document.documentElement.setAttribute('data-mu-theme', isLight ? 'light' : 'dark');
         }
 
         function applyTranslations(lang) {
@@ -2939,13 +1318,13 @@
                     dlg.className = 'generic-modal active';
                     dlg.style.zIndex = 9999;
                     dlg.innerHTML = `
-                      <div class="note-modal-content liquid-glass" style="max-width: 380px; width: 92%; border-radius: 12px; padding: 20px;">
+                      <div class="note-modal-content liquid-glass" style="max-width: 380px; width: 92%; border-radius: var(--mu-radius-xl); padding: 20px;">
                         <h2 style="margin-bottom: 12px;">${t('shareTitle')}</h2>
                         <div style="margin-bottom: 10px;">${t('shareVia')}</div>
                         <div style="display: flex; flex-direction: column; gap: 10px;">
-                          ${shareOptions.map(opt => `<button type="button" class="share-btn liquid-glass" data-id="${opt.id}" style="padding: 10px 0; color: inherit; font-size: 15px; cursor: pointer;">${opt.label}</button>`).join('')}
-                          <button type="button" class="share-btn liquid-glass" data-id="copy" style="padding: 10px 0;  color: inherit; font-size: 15px; cursor: pointer;">Copy</button>
-                          <button type="button" class="share-btn liquid-glass" data-id="close" style="padding: 10px 0;  color: inherit; font-size: 15px; cursor: pointer;">Close</button>
+                          ${shareOptions.map(opt => `<button type="button" class="share-btn liquid-glass" data-id="${opt.id}" style="padding: 10px 0; color: inherit; font-size: 18px; cursor: pointer;">${opt.label}</button>`).join('')}
+                          <button type="button" class="share-btn liquid-glass" data-id="copy" style="padding: 10px 0;  color: inherit; font-size: 18px; cursor: pointer;">Copy</button>
+                          <button type="button" class="share-btn liquid-glass" data-id="close" style="padding: 10px 0;  color: inherit; font-size: 18px; cursor: pointer;">Close</button>
                         </div>
                       </div>
                     `;
@@ -3021,17 +1400,19 @@
           var lnL = document.getElementById('languageLabel'); if (lnL) lnL.textContent = t.languageLabel;
           var lmL = document.getElementById('lightModeLabel'); if (lmL) lmL.textContent = t.lightModeLabel;
           var mtA = document.getElementById('moveToTrashAllNotesBtn'); if (mtA) mtA.textContent = t.moveToTrashAll;
-          var exA = document.getElementById('exportAllNotesBtn'); if (exA) { exA.textContent = t.exportAll; exA.style.color = '#14ce5f'; }
-          var imN = document.getElementById('importNotesBtn'); if (imN) { imN.textContent = t.importNotes; imN.style.color = '#1e90ff'; }
-          var rkB = document.getElementById('resetEncryptionKeyBtn'); if (rkB) { rkB.textContent = t.resetEncKey; rkB.style.color = '#cec111'; }
-          var daB = document.getElementById('deleteAllNotesBtn'); if (daB) { daB.textContent = t.deleteAll; daB.style.color = '#ce1411'; }
+          var exA = document.getElementById('exportAllNotesBtn'); if (exA) { exA.textContent = t.exportAll; }
+          var imN = document.getElementById('importNotesBtn'); if (imN) { imN.textContent = t.importNotes; }
+          var rkB = document.getElementById('resetEncryptionKeyBtn'); if (rkB) { rkB.textContent = t.resetEncKey; }
+          var daB = document.getElementById('deleteAllNotesBtn'); if (daB) { daB.textContent = t.deleteAll; }
           document.querySelectorAll('.mobile-sidebar-navlink[data-page]').forEach(function(n) {
             var pg = n.dataset.page;
             if (pg === 'notesPage') n.innerHTML = '<icon>notes</icon> ' + t.notes;
             else if (pg === 'tagsPage') n.innerHTML = '<icon>label</icon> ' + t.tags;
             else if (pg === 'favoritesPage') n.innerHTML = '<icon>star</icon> ' + t.favorites;
             else if (pg === 'trashPage') n.innerHTML = '<icon>delete</icon> ' + t.trash;
+            else if (pg === 'archivePage') n.innerHTML = '<icon>archive</icon> <span data-sf="archive">' + (window.SupaNotesT ? window.SupaNotesT('archive') : 'Archive') + '</span>';
           });
+          if (window.SupaNotesFeatures) window.SupaNotesFeatures.translate();
         }
         var _toneReady = false;
         // Warm up Tone on first user gesture so sounds work even if mic is denied
@@ -3085,7 +1466,7 @@
           _cryptoKey = null;
         function openDB() {
           return new Promise(function (res, rej) {
-            var req = indexedDB.open("SupaNotes_v1", 3);
+            var req = indexedDB.open((window.SupaNotesWorkspace && window.SupaNotesWorkspace.dbName) || "SupaNotes_v1", 3);
             req.onupgradeneeded = function (e) {
               var db = e.target.result;
               if (!db.objectStoreNames.contains("keys"))
@@ -3188,9 +1569,12 @@
           }
         }
 
-        async function dbSaveNote(note) {
+        async function dbSaveNote(note, opts) {
+          opts = opts || {};
+          if (H.beforeSave) note = await H.beforeSave(note);
           const eT = await encText(note.title || ""),
-            eC = await encText(note.content || "");
+            eC = await encText(note.content || ""),
+            eM = await encText(JSON.stringify(note.meta || {}));
           let ca = note.createdAt;
           if (!ca) {
             const ex = await idbGet(_db, "notes", note.id);
@@ -3200,20 +1584,28 @@
             id: note.id,
             encTitle: eT,
             encContent: eC,
+            encMeta: eM,
             createdAt: ca,
-            updatedAt: Date.now(),
+            updatedAt: opts.keepUpdatedAt && note.updatedAt ? note.updatedAt : Date.now(),
             favorite: note.favorite || false,
             trashed: note.trashed || false,
             tags: note.tags || [],
           });
+          if (!opts.silent) snChanged();
         }
-        async function dbDeleteNote(id) {
+        async function dbDeleteNote(id, opts) {
+          if (H.beforeDelete && !(opts && opts.silent)) await H.beforeDelete(id);
           await idbDel(_db, "notes", id);
+          if (!(opts && opts.silent)) snChanged();
         }
         async function dbGetAllNotes() {
           const recs = await idbGetAll(_db, "notes");
           const notes = [];
           for (const r of recs) {
+            let meta = {};
+            if (r.encMeta) {
+              try { meta = JSON.parse((await decText(r.encMeta.iv, r.encMeta.data)) || "{}") || {}; } catch (e) { meta = {}; }
+            }
             notes.push({
               id: r.id,
               title: await decText(r.encTitle.iv, r.encTitle.data),
@@ -3223,6 +1615,7 @@
               favorite: r.favorite || false,
               trashed: r.trashed || false,
               tags: r.tags || [],
+              meta: meta,
             });
           }
           return notes.sort(function (a, b) {
@@ -3235,11 +1628,13 @@
             return a.name.localeCompare(b.name);
           });
         }
-        async function dbSaveTag(tag) {
+        async function dbSaveTag(tag, opts) {
           await idbPut(_db, "tags", tag);
+          if (!(opts && opts.silent)) snChanged();
         }
-        async function dbDeleteTag(id) {
+        async function dbDeleteTag(id, opts) {
           await idbDel(_db, "tags", id);
+          if (!(opts && opts.silent)) snChanged();
         }
 
         /* â”€â”€â”€ EDITOR + SELECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -3936,12 +2331,14 @@
             attachVNPlayers(editor);
           }
           noteModal.classList.add("active");
+          if (H.onOpenEditor) H.onOpenEditor(note);
           updateFmtBtns();
           setTimeout(function () {
             noteTitleInput.focus();
           }, 80);
         }
         function closeNoteModal() {
+          if (H.onCloseEditor) H.onCloseEditor();
           noteModal.classList.remove("active");
           _curId = null;
           _curCa = null;
@@ -3977,8 +2374,10 @@
               favorite: _curNote ? _curNote.favorite : false,
               trashed: _curNote ? _curNote.trashed : false,
               tags: _curNote ? _curNote.tags : [],
+              meta: Object.assign({}, _curNote && _curNote.meta, H.editorMeta ? H.editorMeta() : {}),
             };
             await dbSaveNote(noteToSave);
+            if (H.onSaved) H.onSaved(noteToSave);
             showToast(_curId ? "Note updated" : "Note saved");
             closeNoteModal();
             renderCurrentPage();
@@ -3998,6 +2397,7 @@
               delete el.dataset.bound;
             });
           attachVNPlayers(body);
+          if (H.onOpenPreview) H.onOpenPreview(note, body);
           document
             .getElementById("npreviewFavBtn")
             .querySelector("icon").textContent = note.favorite
@@ -4078,6 +2478,7 @@
             .querySelector("icon").textContent = note.trashed
             ? "restore_from_trash"
             : "delete";
+          if (H.onCardMenu) H.onCardMenu(note, menu);
           menu.classList.add("visible");
         }
         function hideCardMenu() {
@@ -4164,7 +2565,7 @@
           list.innerHTML = "";
           if (!tags.length) {
             list.innerHTML =
-              '<div style="opacity:0.45;font-size:14px;padding:8px 4px">No tags yet. Create tags in the Tags page.</div>';
+              '<div style="opacity:0.45;font-size: 18px;padding:8px 4px">No tags yet. Create tags in the Tags page.</div>';
             return;
           }
           tags.forEach(function (tag) {
@@ -4178,7 +2579,7 @@
               tag.name +
               "</span>" +
               (isAssigned
-                ? '<icon style="font-size:16px;margin-left:auto;opacity:0.6">check</icon>'
+                ? '<icon style="font-size: 18px;margin-left:auto;opacity:0.6">check</icon>'
                 : "");
             item.addEventListener("click", async function () {
               note.tags = note.tags ? note.tags.slice() : [];
@@ -4226,23 +2627,22 @@
           const tmp = document.createElement("div");
           tmp.innerHTML = note.content;
           const firstImg = tmp.querySelector("img");
-          const thumbHtml = firstImg
-            ? '<img class="note-card-thumb" src="' +
-              firstImg.getAttribute("src") +
-              '" alt="" />'
+          const thumbSrc = firstImg ? String(firstImg.getAttribute("src") || "") : "";
+          const thumbHtml = /^(data:image\/|blob:|https:)/i.test(thumbSrc)
+            ? '<img class="note-card-thumb" src="' + snEsc(thumbSrc) + '" alt="" />'
             : "";
           const favIcon = note.favorite
-            ? ' <icon style="font-size:15px;color:#ffb3c1;vertical-align:middle">favorite</icon>'
+            ? ' <icon class="note-card-fav" aria-label="Favorite">favorite</icon>'
             : "";
           card.innerHTML =
             thumbHtml +
             '<div class="note-card-title">' +
-            (note.title || '<em style="opacity:.4">Untitled</em>') +
+            (note.title ? snEsc(note.title) : '<em class="note-card-placeholder">' + snEsc(window.SupaNotesT ? window.SupaNotesT('untitled') : 'Untitled') + '</em>') +
             favIcon +
             "</div>" +
             '<div class="note-card-preview">' +
-            (stripHtml(note.content).slice(0, 160) ||
-              '<em style="opacity:.3">No content</em>') +
+            (snEsc(stripHtml(note.content).slice(0, 160)) ||
+              '<em class="note-card-placeholder">' + snEsc(window.SupaNotesT ? window.SupaNotesT('noContent') : 'No content') + '</em>') +
             "</div>" +
             '<div class="note-card-footer"><span class="note-card-date">' +
             relTime(note.updatedAt) +
@@ -4279,6 +2679,7 @@
               if (opts.onDelete) opts.onDelete();
             });
           }
+          if (H.decorateCard) H.decorateCard(card, note, opts);
           return card;
         }
         async function renderNotesList(filter) {
@@ -4301,8 +2702,9 @@
                 );
               })
             : active;
+          const shown = H.processList ? H.processList(list, "notesPage", q) : list;
           notesList.innerHTML = "";
-          if (!list.length) {
+          if (!shown.length) {
             notesList.innerHTML =
               '<div class="notes-empty">' +
               (q
@@ -4311,7 +2713,7 @@
               "</div>";
             return;
           }
-          list.forEach(function (note) {
+          shown.forEach(function (note) {
             const card = buildNoteCard(note, {});
             notesList.appendChild(card);
           });
@@ -4325,9 +2727,10 @@
         /* â”€â”€â”€ FAVORITES PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
         async function renderFavoritesPage() {
           if (!_db) return;
-          const notes = (await dbGetAllNotes()).filter(function (n) {
+          let notes = (await dbGetAllNotes()).filter(function (n) {
             return n.favorite && !n.trashed;
           });
+          if (H.processList) notes = H.processList(notes, "favoritesPage", "");
           const container = document.getElementById("favoritesList");
           if (!container) return;
           container.innerHTML = "";
@@ -4358,10 +2761,10 @@
             const chip = document.createElement("div");
             chip.className = "tag-chip";
             chip.innerHTML =
-              '<icon style="font-size:16px">label</icon><span>' +
-              tag.name +
+              '<icon style="font-size:18px">label</icon><span>' +
+              snEsc(tag.name) +
               "</span>" +
-              '<span class="tag-chip-del" title="Delete tag"><icon style="font-size:16px">close</icon></span>';
+              '<span class="tag-chip-del" title="Delete tag"><icon style="font-size: 18px">close</icon></span>';
             chip
               .querySelector(".tag-chip-del")
               .addEventListener("click", async function (e) {
@@ -4396,9 +2799,10 @@
         /* â”€â”€â”€ TRASH PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
         async function renderTrashPage() {
           if (!_db) return;
-          const notes = (await dbGetAllNotes()).filter(function (n) {
+          let notes = (await dbGetAllNotes()).filter(function (n) {
             return n.trashed;
           });
+          if (H.processList) notes = H.processList(notes, "trashPage", "");
           const container = document.getElementById("trashList");
           if (!container) return;
           container.innerHTML = "";
@@ -4435,10 +2839,15 @@
         /* â”€â”€â”€ PAGE NAVIGATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
         var _currentPage = "notesPage";
         function renderCurrentPage() {
-          if (_currentPage === "notesPage") renderNotesList();
-          else if (_currentPage === "favoritesPage") renderFavoritesPage();
-          else if (_currentPage === "tagsPage") renderTagsPage();
-          else if (_currentPage === "trashPage") renderTrashPage();
+          var done;
+          if (_currentPage === "notesPage") done = renderNotesList();
+          else if (_currentPage === "favoritesPage") done = renderFavoritesPage();
+          else if (_currentPage === "tagsPage") done = renderTagsPage();
+          else if (_currentPage === "trashPage") done = renderTrashPage();
+          else if (H.renderPage) done = H.renderPage(_currentPage);
+          return Promise.resolve(done).then(function () {
+            if (H.afterRender) H.afterRender(_currentPage);
+          });
         }
 
         // Map hash to pageId
@@ -4453,7 +2862,7 @@
             case "#/notes":
               return "notesPage";
             default:
-              return "notesPage";
+              return (H.pageForHash && H.pageForHash(hash)) || "notesPage";
           }
         }
 
@@ -4477,6 +2886,7 @@
             if (pageId === "tagsPage") hash = "#/tags";
             else if (pageId === "favoritesPage") hash = "#/favorites";
             else if (pageId === "trashPage") hash = "#/trash";
+            else if (H.hashForPage && H.hashForPage(pageId)) hash = H.hashForPage(pageId);
             if (window.location.hash !== hash) window.location.hash = hash;
           }
         }
@@ -4639,7 +3049,8 @@
           /* --- Update font button label --- */
           var fontBtn = document.getElementById('noteFontDropdownBtn');
           if (fontBtn) {
-            if (_settings.noteFont === 'sans') fontBtn.textContent = 'Sans';
+            if (_settings.noteFont === 'sans') fontBtn.textContent = 'Munetios UI v4 Font';
+            else if (_settings.noteFont === 'flex') fontBtn.textContent = 'Google Sans Flex';
             else if (_settings.noteFont === 'serif') fontBtn.textContent = 'Serif';
             else fontBtn.textContent = _settings.customFont || 'Custom';
           }
@@ -4719,11 +3130,23 @@
             _settings.customFont = '';
             localStorage.setItem('sn_noteFont', 'sans');
             localStorage.removeItem('sn_customFont');
-            document.getElementById('noteFontDropdownBtn').textContent = 'Sans';
+            document.getElementById('noteFontDropdownBtn').textContent = 'Munetios UI v4 Font';
             document.getElementById('customFontRow').classList.remove('visible');
             closeFontDropdown();
             applyNoteFont('sans', '');
-            showToast('Font: Sans');
+            showToast('Font: Munetios UI v4 Font');
+          });
+
+          document.getElementById('fontOptionFlex').addEventListener('click', function() {
+            _settings.noteFont = 'flex';
+            _settings.customFont = '';
+            localStorage.setItem('sn_noteFont', 'flex');
+            localStorage.removeItem('sn_customFont');
+            document.getElementById('noteFontDropdownBtn').textContent = 'Google Sans Flex';
+            document.getElementById('customFontRow').classList.remove('visible');
+            closeFontDropdown();
+            applyNoteFont('flex', '');
+            showToast('Font: Google Sans Flex');
           });
 
           document.getElementById('fontOptionSerif').addEventListener('click', function() {
@@ -4754,14 +3177,7 @@
             localStorage.setItem('sn_noteFont', 'custom');
             localStorage.setItem('sn_customFont', fontName);
             document.getElementById('noteFontDropdownBtn').textContent = fontName;
-            // Load from Google Fonts
-            var existing = document.getElementById('customFontLink');
-            if (existing) existing.remove();
-            var link = document.createElement('link');
-            link.id = 'customFontLink';
-            link.rel = 'stylesheet';
-            link.href = 'https://fonts.googleapis.com/css2?family=' + fontName.replace(/ /g, '+') + ':wght@400;500;700&display=swap';
-            document.head.appendChild(link);
+            // Fonts installed on this device are used by name; nothing is downloaded.
             applyNoteFont('custom', fontName);
             showToast('Font: ' + fontName);
           });
@@ -4853,7 +3269,7 @@
               try {
                 var notes = JSON.parse(ev.target.result);
                 if (!Array.isArray(notes)) throw new Error('Invalid format');
-                for (var n of notes) { await dbSaveNote(n); }
+                for (var n of notes) { await dbSaveNote(H.sanitizeNote ? H.sanitizeNote(n) : n); }
                 showToast('Imported ' + notes.length + ' notes');
                 renderCurrentPage();
               } catch(ex) {
@@ -4882,22 +3298,30 @@
             });
           });
 
-          /* --- Load custom font if set --- */
-          if (_settings.noteFont === 'custom' && _settings.customFont) {
-            var link = document.createElement('link');
-            link.id = 'customFontLink';
-            link.rel = 'stylesheet';
-            link.href = 'https://fonts.googleapis.com/css2?family=' + _settings.customFont.replace(/ /g, '+') + ':wght@400;500;700&display=swap';
-            document.head.appendChild(link);
-          }
 
         })();
+        window.SupaNotesApp = {
+          getAllNotes: dbGetAllNotes, saveNote: dbSaveNote, deleteNote: dbDeleteNote,
+          getTags: dbGetTags, saveTag: dbSaveTag, deleteTag: dbDeleteTag,
+          render: renderCurrentPage, showPage: showPage, currentPage: function () { return _currentPage; },
+          openEditor: openNoteModal, closeEditor: closeNoteModal, openPreview: openNotePreview, closePreview: closeNotePreview,
+          editorNote: function () { return _curNote; },
+          setEditorNote: function (note) { _curId = note.id; _curCa = note.createdAt; _curNote = note; },
+          editor: editor, titleInput: noteTitleInput, buildNoteCard: buildNoteCard, stripHtml: stripHtml, toast: showToast, confirm: showConfirm,
+          t: _t, language: function () { return _settings.language; }, applyFormat: applyFormat, applyNoteFont: applyNoteFont, settings: _settings,
+          saveSelection: saveSelection, restoreSelection: restoreSelection, updateFmtBtns: updateFmtBtns,
+          menuNote: function () { return _menuNote; }, hideCardMenu: hideCardMenu, previewNote: function () { return _previewNote; },
+          ready: null,
+        };
         (async function () {
           try {
+            if (document.readyState === "loading") await new Promise(function (r) { document.addEventListener("DOMContentLoaded", r, { once: true }); });
+            if (window.SupaNotesWorkspace) await window.SupaNotesWorkspace.ready;
             _db = await openDB();
             _cryptoKey = await loadOrGenKey(_db);
-            renderCurrentPage();
+            showPage(hashToPageId(window.location.hash), false);
             vnDrawIdle();
+            document.dispatchEvent(new CustomEvent("supanotes-ready"));
           } catch (e) {
             showToast("Init error: " + e.message);
             console.error(e);
